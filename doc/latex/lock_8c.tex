@@ -1,0 +1,96 @@
+\hypertarget{lock_8c}{\section{lock.\-c \-File \-Reference}
+\label{lock_8c}\index{lock.\-c@{lock.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\*
+{\ttfamily \#include $<$errno.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$signal.\-h$>$}\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\*
+{\ttfamily \#include $<$sys/fcntl.\-h$>$}\*
+{\ttfamily \#include \char`\"{}lock.\-h\char`\"{}}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lock_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}{\-P\-\_\-\-L\-O\-C\-K}~\char`\"{}/var/lock\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{lock_8c_ad70f16a92314b75f7dccc57008736017}{get\-Lock\-Retries} (void)
+\item 
+int \hyperlink{lock_8c_a874ea42ca376d8ddffd44eb8b8972625}{decrement\-Lock\-Retries} (void)
+\item 
+char $\ast$ \hyperlink{lock_8c_a921316ff631dd5ef5f1fba1a227f0ede}{mbasename} (char $\ast$s, char $\ast$res, int reslen)
+\item 
+int \hyperlink{lock_8c_aa3f514ec0f9b446f2d340fee595c05a9}{lockfile\-\_\-create} (void)
+\item 
+void \hyperlink{lock_8c_a6d30aaee55d040adb84e795d94ee4a84}{lockfile\-\_\-remove} (void)
+\item 
+int \hyperlink{lock_8c_aa89541acdab665c106d1e8c075713e3b}{have\-\_\-lock\-\_\-dir} (char $\ast$\hyperlink{radiotftp_8c_a934394ef9a2a49025f911c5733e570f4}{dial\-\_\-tty})
+\item 
+int \hyperlink{lock_8c_a0aa80b3cc9dad67835b7bf8154e18476}{get\-\_\-lock} (char $\ast$\hyperlink{radiotftp_8c_a934394ef9a2a49025f911c5733e570f4}{dial\-\_\-tty})
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{lock_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}{\index{lock.\-c@{lock.\-c}!\-P\-\_\-\-L\-O\-C\-K@{\-P\-\_\-\-L\-O\-C\-K}}
+\index{\-P\-\_\-\-L\-O\-C\-K@{\-P\-\_\-\-L\-O\-C\-K}!lock.c@{lock.\-c}}
+\subsubsection[{\-P\-\_\-\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-\_\-\-L\-O\-C\-K}~\char`\"{}/var/lock\char`\"{}}}\label{lock_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{lock_8c_a874ea42ca376d8ddffd44eb8b8972625}{\index{lock.\-c@{lock.\-c}!decrement\-Lock\-Retries@{decrement\-Lock\-Retries}}
+\index{decrement\-Lock\-Retries@{decrement\-Lock\-Retries}!lock.c@{lock.\-c}}
+\subsubsection[{decrement\-Lock\-Retries}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf decrement\-Lock\-Retries} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_a874ea42ca376d8ddffd44eb8b8972625}
+\hypertarget{lock_8c_a0aa80b3cc9dad67835b7bf8154e18476}{\index{lock.\-c@{lock.\-c}!get\-\_\-lock@{get\-\_\-lock}}
+\index{get\-\_\-lock@{get\-\_\-lock}!lock.c@{lock.\-c}}
+\subsubsection[{get\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf get\-\_\-lock} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dial\-\_\-tty}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_a0aa80b3cc9dad67835b7bf8154e18476}
+\hypertarget{lock_8c_ad70f16a92314b75f7dccc57008736017}{\index{lock.\-c@{lock.\-c}!get\-Lock\-Retries@{get\-Lock\-Retries}}
+\index{get\-Lock\-Retries@{get\-Lock\-Retries}!lock.c@{lock.\-c}}
+\subsubsection[{get\-Lock\-Retries}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf get\-Lock\-Retries} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_ad70f16a92314b75f7dccc57008736017}
+\hypertarget{lock_8c_aa89541acdab665c106d1e8c075713e3b}{\index{lock.\-c@{lock.\-c}!have\-\_\-lock\-\_\-dir@{have\-\_\-lock\-\_\-dir}}
+\index{have\-\_\-lock\-\_\-dir@{have\-\_\-lock\-\_\-dir}!lock.c@{lock.\-c}}
+\subsubsection[{have\-\_\-lock\-\_\-dir}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf have\-\_\-lock\-\_\-dir} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{dial\-\_\-tty}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_aa89541acdab665c106d1e8c075713e3b}
+\hypertarget{lock_8c_aa3f514ec0f9b446f2d340fee595c05a9}{\index{lock.\-c@{lock.\-c}!lockfile\-\_\-create@{lockfile\-\_\-create}}
+\index{lockfile\-\_\-create@{lockfile\-\_\-create}!lock.c@{lock.\-c}}
+\subsubsection[{lockfile\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf lockfile\-\_\-create} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_aa3f514ec0f9b446f2d340fee595c05a9}
+\hypertarget{lock_8c_a6d30aaee55d040adb84e795d94ee4a84}{\index{lock.\-c@{lock.\-c}!lockfile\-\_\-remove@{lockfile\-\_\-remove}}
+\index{lockfile\-\_\-remove@{lockfile\-\_\-remove}!lock.c@{lock.\-c}}
+\subsubsection[{lockfile\-\_\-remove}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf lockfile\-\_\-remove} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_a6d30aaee55d040adb84e795d94ee4a84}
+\hypertarget{lock_8c_a921316ff631dd5ef5f1fba1a227f0ede}{\index{lock.\-c@{lock.\-c}!mbasename@{mbasename}}
+\index{mbasename@{mbasename}!lock.c@{lock.\-c}}
+\subsubsection[{mbasename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf mbasename} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s, }
+\item[{char $\ast$}]{res, }
+\item[{int}]{reslen}
+\end{DoxyParamCaption}
+)}}\label{lock_8c_a921316ff631dd5ef5f1fba1a227f0ede}

@@ -1,0 +1,70 @@
+\hypertarget{ethernet_8c}{\section{ethernet.\-c \-File \-Reference}
+\label{ethernet_8c}\index{ethernet.\-c@{ethernet.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include \char`\"{}ethernet.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ethernet_8c_a0bc0ee68c8ff6f25bede3a7152bd18a7}{eth\-\_\-initialize\-\_\-network} (uint8\-\_\-t $\ast$my\-Eth)
+\item 
+uint8\-\_\-t $\ast$ \hyperlink{ethernet_8c_a3c87a55ca24254241019ff2a09f4fa98}{eth\-\_\-get\-\_\-local\-\_\-address} (uint8\-\_\-t $\ast$eth\-\_\-out)
+\item 
+uint32\-\_\-t \hyperlink{ethernet_8c_ad169cef46afe2c6b91a886dfa9435e3d}{eth\-\_\-create\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-in, uint8\-\_\-t $\ast$dst\-\_\-in, uint8\-\_\-t $\ast$payload\-\_\-in, uint16\-\_\-t payload\-\_\-length, uint8\-\_\-t $\ast$packet\-\_\-out)
+\item 
+uint8\-\_\-t \hyperlink{ethernet_8c_a094f67ae527aabcde17799f9f6de70f0}{eth\-\_\-check\-\_\-destination} (uint8\-\_\-t $\ast$my\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-in)
+\item 
+uint16\-\_\-t \hyperlink{ethernet_8c_a22fe617f2fcacaa6d68a2972deb67b16}{eth\-\_\-open\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-out, uint8\-\_\-t $\ast$dst\-\_\-out, uint8\-\_\-t $\ast$payload\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in, uint16\-\_\-t packet\-\_\-length)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{ethernet_8c_a094f67ae527aabcde17799f9f6de70f0}{\index{ethernet.\-c@{ethernet.\-c}!eth\-\_\-check\-\_\-destination@{eth\-\_\-check\-\_\-destination}}
+\index{eth\-\_\-check\-\_\-destination@{eth\-\_\-check\-\_\-destination}!ethernet.c@{ethernet.\-c}}
+\subsubsection[{eth\-\_\-check\-\_\-destination}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf eth\-\_\-check\-\_\-destination} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8c_a094f67ae527aabcde17799f9f6de70f0}
+\hyperlink{ethernet_8c_a094f67ae527aabcde17799f9f6de70f0}{eth\-\_\-check\-\_\-destination()} checks the destination of the packet\-\_\-in with my\-\_\-dst if packet\-\_\-dst is not null pointer writes the packet's destination to packet\-\_\-dst returns zero if the addresses match \hypertarget{ethernet_8c_ad169cef46afe2c6b91a886dfa9435e3d}{\index{ethernet.\-c@{ethernet.\-c}!eth\-\_\-create\-\_\-packet@{eth\-\_\-create\-\_\-packet}}
+\index{eth\-\_\-create\-\_\-packet@{eth\-\_\-create\-\_\-packet}!ethernet.c@{ethernet.\-c}}
+\subsubsection[{eth\-\_\-create\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf eth\-\_\-create\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-in, }
+\item[{uint16\-\_\-t}]{payload\-\_\-length, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8c_ad169cef46afe2c6b91a886dfa9435e3d}
+\hyperlink{ethernet_8c_ad169cef46afe2c6b91a886dfa9435e3d}{eth\-\_\-create\-\_\-packet()} prepares an ethernet packet with source address, target destination address and payload and puts it in packet\-\_\-out also computes the checksum and also puts it into the packet on successful encapsulation function returns the length of the packet else returns zero \hypertarget{ethernet_8c_a3c87a55ca24254241019ff2a09f4fa98}{\index{ethernet.\-c@{ethernet.\-c}!eth\-\_\-get\-\_\-local\-\_\-address@{eth\-\_\-get\-\_\-local\-\_\-address}}
+\index{eth\-\_\-get\-\_\-local\-\_\-address@{eth\-\_\-get\-\_\-local\-\_\-address}!ethernet.c@{ethernet.\-c}}
+\subsubsection[{eth\-\_\-get\-\_\-local\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ {\bf eth\-\_\-get\-\_\-local\-\_\-address} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{eth\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8c_a3c87a55ca24254241019ff2a09f4fa98}
+\hyperlink{ethernet_8c_a3c87a55ca24254241019ff2a09f4fa98}{eth\-\_\-get\-\_\-local\-\_\-address()} return a pointer to the static local address also if the parameter is not \-N\-U\-L\-L, copies the address to parameter pointer \hypertarget{ethernet_8c_a0bc0ee68c8ff6f25bede3a7152bd18a7}{\index{ethernet.\-c@{ethernet.\-c}!eth\-\_\-initialize\-\_\-network@{eth\-\_\-initialize\-\_\-network}}
+\index{eth\-\_\-initialize\-\_\-network@{eth\-\_\-initialize\-\_\-network}!ethernet.c@{ethernet.\-c}}
+\subsubsection[{eth\-\_\-initialize\-\_\-network}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf eth\-\_\-initialize\-\_\-network} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-Eth}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8c_a0bc0ee68c8ff6f25bede3a7152bd18a7}
+\hyperlink{ethernet_8c_a0bc0ee68c8ff6f25bede3a7152bd18a7}{eth\-\_\-initialize\-\_\-network()} copies the ethernet address to static local eth address \hypertarget{ethernet_8c_a22fe617f2fcacaa6d68a2972deb67b16}{\index{ethernet.\-c@{ethernet.\-c}!eth\-\_\-open\-\_\-packet@{eth\-\_\-open\-\_\-packet}}
+\index{eth\-\_\-open\-\_\-packet@{eth\-\_\-open\-\_\-packet}!ethernet.c@{ethernet.\-c}}
+\subsubsection[{eth\-\_\-open\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf eth\-\_\-open\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in, }
+\item[{uint16\-\_\-t}]{packet\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8c_a22fe617f2fcacaa6d68a2972deb67b16}
+\hyperlink{ethernet_8c_a22fe617f2fcacaa6d68a2972deb67b16}{eth\-\_\-open\-\_\-packet()} opens the packet\-\_\-in and writes source address to src\-\_\-out, destination address to dst\-\_\-out writes the payload to payload\-\_\-out before writing anything it first checks the checksum, if the checksum doesn't match, null is written to all pointers and function returns 0 on a successful opening function returns the length of the packet 

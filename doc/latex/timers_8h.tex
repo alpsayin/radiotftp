@@ -1,0 +1,79 @@
+\hypertarget{timers_8h}{\section{\-Header \-Files/timers.h \-File \-Reference}
+\label{timers_8h}\index{\-Header Files/timers.\-h@{\-Header Files/timers.\-h}}
+}
+{\ttfamily \#include $<$signal.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{timers_8h_a2097d86b10db24bc121a729754b6cdae}{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}(timer\-Handler)~uint8\-\_\-t timer\-Handler()
+\item 
+\#define \hyperlink{timers_8h_a40eed1c494a2296a76d19de00f2dbef0}{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}(timer\-Handler)~uint8\-\_\-t timer\-Handler()
+\end{DoxyCompactItemize}
+\subsection*{\-Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\-\_\-t($\ast$ \hyperlink{timers_8h_a72e1b0358109f0287c00405caaa6ae68}{timer\-Handlerfptr\-\_\-t} )(void)
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{timers_8h_a8bab36f8ce6abfbcadf53f15e28daa7a}{timers\-\_\-initialize} (void($\ast$handlerfptr)(int sig))
+\item 
+uint8\-\_\-t \hyperlink{timers_8h_a5e4db3f7878492e8bbb2cdedbfefbcfa}{timers\-\_\-create\-\_\-timer} (int expire\-S, int interval\-S, int expire\-U\-S, int interval\-U\-S)
+\item 
+uint8\-\_\-t \hyperlink{timers_8h_a47a0090cc18c8f7b28813d8b3fb80c07}{timers\-\_\-cancel\-\_\-timer} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{timers_8h_a40eed1c494a2296a76d19de00f2dbef0}{\index{timers.\-h@{timers.\-h}!\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
+\index{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!timers.h@{timers.\-h}}
+\subsubsection[{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}(
+\begin{DoxyParamCaption}
+\item[{}]{timer\-Handler}
+\end{DoxyParamCaption}
+)~uint8\-\_\-t timer\-Handler()}}\label{timers_8h_a40eed1c494a2296a76d19de00f2dbef0}
+\hypertarget{timers_8h_a2097d86b10db24bc121a729754b6cdae}{\index{timers.\-h@{timers.\-h}!\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}}
+\index{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}!timers.h@{timers.\-h}}
+\subsubsection[{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}(
+\begin{DoxyParamCaption}
+\item[{}]{timer\-Handler}
+\end{DoxyParamCaption}
+)~uint8\-\_\-t timer\-Handler()}}\label{timers_8h_a2097d86b10db24bc121a729754b6cdae}
+
+
+\subsection{\-Typedef \-Documentation}
+\hypertarget{timers_8h_a72e1b0358109f0287c00405caaa6ae68}{\index{timers.\-h@{timers.\-h}!timer\-Handlerfptr\-\_\-t@{timer\-Handlerfptr\-\_\-t}}
+\index{timer\-Handlerfptr\-\_\-t@{timer\-Handlerfptr\-\_\-t}!timers.h@{timers.\-h}}
+\subsubsection[{timer\-Handlerfptr\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\-\_\-t($\ast$ {\bf timer\-Handlerfptr\-\_\-t})(void)}}\label{timers_8h_a72e1b0358109f0287c00405caaa6ae68}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{timers_8h_a47a0090cc18c8f7b28813d8b3fb80c07}{\index{timers.\-h@{timers.\-h}!timers\-\_\-cancel\-\_\-timer@{timers\-\_\-cancel\-\_\-timer}}
+\index{timers\-\_\-cancel\-\_\-timer@{timers\-\_\-cancel\-\_\-timer}!timers.h@{timers.\-h}}
+\subsubsection[{timers\-\_\-cancel\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-cancel\-\_\-timer} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{timers_8h_a47a0090cc18c8f7b28813d8b3fb80c07}
+\hypertarget{timers_8h_a5e4db3f7878492e8bbb2cdedbfefbcfa}{\index{timers.\-h@{timers.\-h}!timers\-\_\-create\-\_\-timer@{timers\-\_\-create\-\_\-timer}}
+\index{timers\-\_\-create\-\_\-timer@{timers\-\_\-create\-\_\-timer}!timers.h@{timers.\-h}}
+\subsubsection[{timers\-\_\-create\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-create\-\_\-timer} (
+\begin{DoxyParamCaption}
+\item[{int}]{expire\-S, }
+\item[{int}]{interval\-S, }
+\item[{int}]{expire\-U\-S, }
+\item[{int}]{interval\-U\-S}
+\end{DoxyParamCaption}
+)}}\label{timers_8h_a5e4db3f7878492e8bbb2cdedbfefbcfa}
+\hypertarget{timers_8h_a8bab36f8ce6abfbcadf53f15e28daa7a}{\index{timers.\-h@{timers.\-h}!timers\-\_\-initialize@{timers\-\_\-initialize}}
+\index{timers\-\_\-initialize@{timers\-\_\-initialize}!timers.h@{timers.\-h}}
+\subsubsection[{timers\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-initialize} (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(int sig)}]{handlerfptr}
+\end{DoxyParamCaption}
+)}}\label{timers_8h_a8bab36f8ce6abfbcadf53f15e28daa7a}

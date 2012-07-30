@@ -1,0 +1,162 @@
+\hypertarget{ax25_8h}{\section{\-Header \-Files/ax25.h \-File \-Reference}
+\label{ax25_8h}\index{\-Header Files/ax25.\-h@{\-Header Files/ax25.\-h}}
+}
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ax25_8h_a69809bbb570edbfa34b78e33c26a8fce}{\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}~(512)
+\item 
+\#define \hyperlink{ax25_8h_ae058494a432afdb6890784a658f16ff0}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L}~0x03
+\item 
+\#define \hyperlink{ax25_8h_adc8c19a13018dd9ee021217baf667a6a}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L}~0x13
+\item 
+\#define \hyperlink{ax25_8h_a517495cf4bc3a44967b20fd7188359ee}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L}~0x\-F0
+\item 
+\#define \hyperlink{ax25_8h_af4c92ea0ba3183134d27c7a34b34fe70}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}~0x06
+\item 
+\#define \hyperlink{ax25_8h_aacceace90b912aa722450c5bd9ba1469}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}~0x07
+\item 
+\#define \hyperlink{ax25_8h_add7d6e019aff2ce43de9fb662cfe7408}{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}~7
+\item 
+\#define \hyperlink{ax25_8h_a7b1fe5c052e205d520abb0ddd32af49e}{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}~7
+\item 
+\#define \hyperlink{ax25_8h_a6c73656ecf0cc2018819806022173874}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H}~1
+\item 
+\#define \hyperlink{ax25_8h_a08a2cae06c728413636fa399837963c0}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H}~1
+\item 
+\#define \hyperlink{ax25_8h_a7b09b6529147e4b73364d5d5242d0ec6}{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}~2
+\item 
+\#define \hyperlink{ax25_8h_a7bd9529184dc7d43bcb60d7814fe012a}{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}~0
+\item 
+\#define \hyperlink{ax25_8h_a4bb8055591e8cb1485d689295c3c2661}{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ax25_8h_a7bd9529184dc7d43bcb60d7814fe012a}{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ax25_8h_add7d6e019aff2ce43de9fb662cfe7408}{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ax25_8h_a27cb357ca28fb763f8c942c3a802cbf7}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ax25_8h_a4bb8055591e8cb1485d689295c3c2661}{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ax25_8h_a7b1fe5c052e205d520abb0ddd32af49e}{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ax25_8h_aa3b2a9ba9c3ddab2bad715b6f8535089}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ax25_8h_a27cb357ca28fb763f8c942c3a802cbf7}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ax25_8h_a6c73656ecf0cc2018819806022173874}{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ax25_8h_ae4413dd41de7d4ee9119cd68bd711c0e}{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ax25_8h_aa3b2a9ba9c3ddab2bad715b6f8535089}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ax25_8h_a08a2cae06c728413636fa399837963c0}{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ax25_8h_a9c86436e3209ef4ca8776336e85226cf}{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}(payload\-\_\-len)~(\hyperlink{ax25_8h_ae4413dd41de7d4ee9119cd68bd711c0e}{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}+payload\-\_\-len)
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ax25_8h_ac920dc03f6f06dfa033c370ed1a4efa4}{ax25\-\_\-initialize\-\_\-network} (uint8\-\_\-t $\ast$my\-Callsign)
+\item 
+uint8\-\_\-t $\ast$ \hyperlink{ax25_8h_ab0677d0c28184573f1f921d826bc32f4}{ax25\-\_\-get\-\_\-local\-\_\-callsign} (uint8\-\_\-t $\ast$callsign\-\_\-out)
+\item 
+uint32\-\_\-t \hyperlink{ax25_8h_a3a999d6bd0df92ed7e7973d825319ddb}{ax25\-\_\-create\-\_\-ui\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-in, uint8\-\_\-t $\ast$dst\-\_\-in, uint8\-\_\-t $\ast$payload\-\_\-in, uint16\-\_\-t payload\-\_\-length, uint8\-\_\-t $\ast$packet\-\_\-out)
+\item 
+uint8\-\_\-t \hyperlink{ax25_8h_a8a9e529a5718480ea9b9fd328ab56495}{ax25\-\_\-check\-\_\-destination} (uint8\-\_\-t $\ast$my\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-dst\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in)
+\item 
+uint16\-\_\-t \hyperlink{ax25_8h_a2aab4303f885be0003899067c11dfff9}{ax25\-\_\-open\-\_\-ui\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-out, uint8\-\_\-t $\ast$dst\-\_\-out, uint8\-\_\-t $\ast$payload\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in, uint16\-\_\-t packet\-\_\-length)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{ax25_8h_a6c73656ecf0cc2018819806022173874}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H}~1}}\label{ax25_8h_a6c73656ecf0cc2018819806022173874}
+\hypertarget{ax25_8h_a27cb357ca28fb763f8c942c3a802cbf7}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ax25_8h_a27cb357ca28fb763f8c942c3a802cbf7}
+\hypertarget{ax25_8h_ae058494a432afdb6890784a658f16ff0}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L}}
+\index{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-F\-I\-N\-A\-L}~0x03}}\label{ax25_8h_ae058494a432afdb6890784a658f16ff0}
+\hypertarget{ax25_8h_adc8c19a13018dd9ee021217baf667a6a}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L}}
+\index{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L@{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-U\-I\-\_\-\-P\-O\-L\-L}~0x13}}\label{ax25_8h_adc8c19a13018dd9ee021217baf667a6a}
+\hypertarget{ax25_8h_add7d6e019aff2ce43de9fb662cfe7408}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}~7}}\label{ax25_8h_add7d6e019aff2ce43de9fb662cfe7408}
+\hypertarget{ax25_8h_a7bd9529184dc7d43bcb60d7814fe012a}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}~0}}\label{ax25_8h_a7bd9529184dc7d43bcb60d7814fe012a}
+\hypertarget{ax25_8h_a7b09b6529147e4b73364d5d5242d0ec6}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}~2}}\label{ax25_8h_a7b09b6529147e4b73364d5d5242d0ec6}
+\hypertarget{ax25_8h_a9c86436e3209ef4ca8776336e85226cf}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{payload\-\_\-len}
+\end{DoxyParamCaption}
+)~({\bf \-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}+payload\-\_\-len)}}\label{ax25_8h_a9c86436e3209ef4ca8776336e85226cf}
+\hypertarget{ax25_8h_a69809bbb570edbfa34b78e33c26a8fce}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}~(512)}}\label{ax25_8h_a69809bbb570edbfa34b78e33c26a8fce}
+\hypertarget{ax25_8h_ae4413dd41de7d4ee9119cd68bd711c0e}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ax25_8h_ae4413dd41de7d4ee9119cd68bd711c0e}
+\hypertarget{ax25_8h_af4c92ea0ba3183134d27c7a34b34fe70}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}}
+\index{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}~0x06}}\label{ax25_8h_af4c92ea0ba3183134d27c7a34b34fe70}
+\hypertarget{ax25_8h_a08a2cae06c728413636fa399837963c0}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-L\-E\-N\-G\-T\-H}~1}}\label{ax25_8h_a08a2cae06c728413636fa399837963c0}
+\hypertarget{ax25_8h_a517495cf4bc3a44967b20fd7188359ee}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L}}
+\index{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-N\-O\-\_\-\-P\-R\-O\-T\-O\-C\-O\-L}~0x\-F0}}\label{ax25_8h_a517495cf4bc3a44967b20fd7188359ee}
+\hypertarget{ax25_8h_aa3b2a9ba9c3ddab2bad715b6f8535089}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-A\-X25\-\_\-\-C\-O\-N\-T\-R\-O\-L\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ax25_8h_aa3b2a9ba9c3ddab2bad715b6f8535089}
+\hypertarget{ax25_8h_aacceace90b912aa722450c5bd9ba1469}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}}
+\index{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P@{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-P\-I\-D\-\_\-\-U\-N\-C\-O\-M\-P\-R\-E\-S\-S\-E\-D\-\_\-\-T\-C\-P}~0x07}}\label{ax25_8h_aacceace90b912aa722450c5bd9ba1469}
+\hypertarget{ax25_8h_a7b1fe5c052e205d520abb0ddd32af49e}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}~7}}\label{ax25_8h_a7b1fe5c052e205d520abb0ddd32af49e}
+\hypertarget{ax25_8h_a4bb8055591e8cb1485d689295c3c2661}{\index{ax25.\-h@{ax25.\-h}!\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T@{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}!ax25.h@{ax25.\-h}}
+\subsubsection[{\-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-A\-X25\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-A\-X25\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ax25_8h_a4bb8055591e8cb1485d689295c3c2661}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{ax25_8h_a8a9e529a5718480ea9b9fd328ab56495}{\index{ax25.\-h@{ax25.\-h}!ax25\-\_\-check\-\_\-destination@{ax25\-\_\-check\-\_\-destination}}
+\index{ax25\-\_\-check\-\_\-destination@{ax25\-\_\-check\-\_\-destination}!ax25.h@{ax25.\-h}}
+\subsubsection[{ax25\-\_\-check\-\_\-destination}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf ax25\-\_\-check\-\_\-destination} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{ax25_8h_a8a9e529a5718480ea9b9fd328ab56495}
+\hyperlink{ax25_8c_a8a9e529a5718480ea9b9fd328ab56495}{ax25\-\_\-check\-\_\-destination()} checks the destination of the packet\-\_\-in with my\-\_\-dst if packet\-\_\-dst is not null pointer writes the packet's destination to packet\-\_\-dst returns zero if the addresses match \hypertarget{ax25_8h_a3a999d6bd0df92ed7e7973d825319ddb}{\index{ax25.\-h@{ax25.\-h}!ax25\-\_\-create\-\_\-ui\-\_\-packet@{ax25\-\_\-create\-\_\-ui\-\_\-packet}}
+\index{ax25\-\_\-create\-\_\-ui\-\_\-packet@{ax25\-\_\-create\-\_\-ui\-\_\-packet}!ax25.h@{ax25.\-h}}
+\subsubsection[{ax25\-\_\-create\-\_\-ui\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf ax25\-\_\-create\-\_\-ui\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-in, }
+\item[{uint16\-\_\-t}]{payload\-\_\-length, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ax25_8h_a3a999d6bd0df92ed7e7973d825319ddb}
+ax25\-\_\-create\-\_\-packet() prepares an ax25 packet with source address, target destination address and payload and puts it in packet\-\_\-out also computes the checksum and also puts it into the packet on successful encapsulation function returns the length of the packet else returns zero \hypertarget{ax25_8h_ab0677d0c28184573f1f921d826bc32f4}{\index{ax25.\-h@{ax25.\-h}!ax25\-\_\-get\-\_\-local\-\_\-callsign@{ax25\-\_\-get\-\_\-local\-\_\-callsign}}
+\index{ax25\-\_\-get\-\_\-local\-\_\-callsign@{ax25\-\_\-get\-\_\-local\-\_\-callsign}!ax25.h@{ax25.\-h}}
+\subsubsection[{ax25\-\_\-get\-\_\-local\-\_\-callsign}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ {\bf ax25\-\_\-get\-\_\-local\-\_\-callsign} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{callsign\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ax25_8h_ab0677d0c28184573f1f921d826bc32f4}
+ax25\-\_\-get\-\_\-local\-\_\-address() return a pointer to the static local address also if the parameter is not \-N\-U\-L\-L, copies the callsign to parameter pointer \hypertarget{ax25_8h_ac920dc03f6f06dfa033c370ed1a4efa4}{\index{ax25.\-h@{ax25.\-h}!ax25\-\_\-initialize\-\_\-network@{ax25\-\_\-initialize\-\_\-network}}
+\index{ax25\-\_\-initialize\-\_\-network@{ax25\-\_\-initialize\-\_\-network}!ax25.h@{ax25.\-h}}
+\subsubsection[{ax25\-\_\-initialize\-\_\-network}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf ax25\-\_\-initialize\-\_\-network} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-Callsign}
+\end{DoxyParamCaption}
+)}}\label{ax25_8h_ac920dc03f6f06dfa033c370ed1a4efa4}
+\hyperlink{ax25_8c_ac920dc03f6f06dfa033c370ed1a4efa4}{ax25\-\_\-initialize\-\_\-network()} copies the ax25 callsign to static local eth address \hypertarget{ax25_8h_a2aab4303f885be0003899067c11dfff9}{\index{ax25.\-h@{ax25.\-h}!ax25\-\_\-open\-\_\-ui\-\_\-packet@{ax25\-\_\-open\-\_\-ui\-\_\-packet}}
+\index{ax25\-\_\-open\-\_\-ui\-\_\-packet@{ax25\-\_\-open\-\_\-ui\-\_\-packet}!ax25.h@{ax25.\-h}}
+\subsubsection[{ax25\-\_\-open\-\_\-ui\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf ax25\-\_\-open\-\_\-ui\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in, }
+\item[{uint16\-\_\-t}]{packet\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{ax25_8h_a2aab4303f885be0003899067c11dfff9}
+ax25\-\_\-open\-\_\-packet() opens the packet\-\_\-in and writes source address to src\-\_\-out, destination address to dst\-\_\-out writes the payload to payload\-\_\-out before writing anything it first checks the checksum, if the checksum doesn't match, null is written to all pointers and function returns 0 on a successful opening function returns the length of the packet 

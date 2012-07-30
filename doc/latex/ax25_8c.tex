@@ -1,0 +1,81 @@
+\hypertarget{ax25_8c}{\section{ax25.\-c \-File \-Reference}
+\label{ax25_8c}\index{ax25.\-c@{ax25.\-c}}
+}
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include \char`\"{}ax25.\-h\char`\"{}}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ax25_8c_a60045958d81758eaafdc718a7d34e848}{\-I\-N\-I\-T\-F\-C\-S}~0xffff  /$\ast$ Initial F\-C\-S value $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ax25_8c_ac920dc03f6f06dfa033c370ed1a4efa4}{ax25\-\_\-initialize\-\_\-network} (uint8\-\_\-t $\ast$my\-Callsign)
+\item 
+uint8\-\_\-t $\ast$ \hyperlink{ax25_8c_ab0677d0c28184573f1f921d826bc32f4}{ax25\-\_\-get\-\_\-local\-\_\-callsign} (uint8\-\_\-t $\ast$callsign\-\_\-out)
+\item 
+uint32\-\_\-t \hyperlink{ax25_8c_a3a999d6bd0df92ed7e7973d825319ddb}{ax25\-\_\-create\-\_\-ui\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-in, uint8\-\_\-t $\ast$dst\-\_\-in, uint8\-\_\-t $\ast$payload\-\_\-in, uint16\-\_\-t payload\-\_\-length, uint8\-\_\-t $\ast$packet\-\_\-out)
+\item 
+uint8\-\_\-t \hyperlink{ax25_8c_a8a9e529a5718480ea9b9fd328ab56495}{ax25\-\_\-check\-\_\-destination} (uint8\-\_\-t $\ast$my\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-dst\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in)
+\item 
+uint16\-\_\-t \hyperlink{ax25_8c_a2aab4303f885be0003899067c11dfff9}{ax25\-\_\-open\-\_\-ui\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-out, uint8\-\_\-t $\ast$dst\-\_\-out, uint8\-\_\-t $\ast$payload\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in, uint16\-\_\-t packet\-\_\-length)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{ax25_8c_a60045958d81758eaafdc718a7d34e848}{\index{ax25.\-c@{ax25.\-c}!\-I\-N\-I\-T\-F\-C\-S@{\-I\-N\-I\-T\-F\-C\-S}}
+\index{\-I\-N\-I\-T\-F\-C\-S@{\-I\-N\-I\-T\-F\-C\-S}!ax25.c@{ax25.\-c}}
+\subsubsection[{\-I\-N\-I\-T\-F\-C\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-N\-I\-T\-F\-C\-S}~0xffff  /$\ast$ Initial F\-C\-S value $\ast$/}}\label{ax25_8c_a60045958d81758eaafdc718a7d34e848}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{ax25_8c_a8a9e529a5718480ea9b9fd328ab56495}{\index{ax25.\-c@{ax25.\-c}!ax25\-\_\-check\-\_\-destination@{ax25\-\_\-check\-\_\-destination}}
+\index{ax25\-\_\-check\-\_\-destination@{ax25\-\_\-check\-\_\-destination}!ax25.c@{ax25.\-c}}
+\subsubsection[{ax25\-\_\-check\-\_\-destination}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf ax25\-\_\-check\-\_\-destination} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{ax25_8c_a8a9e529a5718480ea9b9fd328ab56495}
+\hyperlink{ax25_8c_a8a9e529a5718480ea9b9fd328ab56495}{ax25\-\_\-check\-\_\-destination()} checks the destination of the packet\-\_\-in with my\-\_\-dst if packet\-\_\-dst is not null pointer writes the packet's destination to packet\-\_\-dst returns zero if the addresses match \hypertarget{ax25_8c_a3a999d6bd0df92ed7e7973d825319ddb}{\index{ax25.\-c@{ax25.\-c}!ax25\-\_\-create\-\_\-ui\-\_\-packet@{ax25\-\_\-create\-\_\-ui\-\_\-packet}}
+\index{ax25\-\_\-create\-\_\-ui\-\_\-packet@{ax25\-\_\-create\-\_\-ui\-\_\-packet}!ax25.c@{ax25.\-c}}
+\subsubsection[{ax25\-\_\-create\-\_\-ui\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf ax25\-\_\-create\-\_\-ui\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-in, }
+\item[{uint16\-\_\-t}]{payload\-\_\-length, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ax25_8c_a3a999d6bd0df92ed7e7973d825319ddb}
+ax25\-\_\-create\-\_\-packet() prepares an ax25 packet with source address, target destination address and payload and puts it in packet\-\_\-out also computes the checksum and also puts it into the packet on successful encapsulation function returns the length of the packet else returns zero \hypertarget{ax25_8c_ab0677d0c28184573f1f921d826bc32f4}{\index{ax25.\-c@{ax25.\-c}!ax25\-\_\-get\-\_\-local\-\_\-callsign@{ax25\-\_\-get\-\_\-local\-\_\-callsign}}
+\index{ax25\-\_\-get\-\_\-local\-\_\-callsign@{ax25\-\_\-get\-\_\-local\-\_\-callsign}!ax25.c@{ax25.\-c}}
+\subsubsection[{ax25\-\_\-get\-\_\-local\-\_\-callsign}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ {\bf ax25\-\_\-get\-\_\-local\-\_\-callsign} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{callsign\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ax25_8c_ab0677d0c28184573f1f921d826bc32f4}
+ax25\-\_\-get\-\_\-local\-\_\-address() return a pointer to the static local address also if the parameter is not \-N\-U\-L\-L, copies the callsign to parameter pointer \hypertarget{ax25_8c_ac920dc03f6f06dfa033c370ed1a4efa4}{\index{ax25.\-c@{ax25.\-c}!ax25\-\_\-initialize\-\_\-network@{ax25\-\_\-initialize\-\_\-network}}
+\index{ax25\-\_\-initialize\-\_\-network@{ax25\-\_\-initialize\-\_\-network}!ax25.c@{ax25.\-c}}
+\subsubsection[{ax25\-\_\-initialize\-\_\-network}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf ax25\-\_\-initialize\-\_\-network} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-Callsign}
+\end{DoxyParamCaption}
+)}}\label{ax25_8c_ac920dc03f6f06dfa033c370ed1a4efa4}
+\hyperlink{ax25_8c_ac920dc03f6f06dfa033c370ed1a4efa4}{ax25\-\_\-initialize\-\_\-network()} copies the ax25 callsign to static local eth address \hypertarget{ax25_8c_a2aab4303f885be0003899067c11dfff9}{\index{ax25.\-c@{ax25.\-c}!ax25\-\_\-open\-\_\-ui\-\_\-packet@{ax25\-\_\-open\-\_\-ui\-\_\-packet}}
+\index{ax25\-\_\-open\-\_\-ui\-\_\-packet@{ax25\-\_\-open\-\_\-ui\-\_\-packet}!ax25.c@{ax25.\-c}}
+\subsubsection[{ax25\-\_\-open\-\_\-ui\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf ax25\-\_\-open\-\_\-ui\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in, }
+\item[{uint16\-\_\-t}]{packet\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{ax25_8c_a2aab4303f885be0003899067c11dfff9}
+ax25\-\_\-open\-\_\-packet() opens the packet\-\_\-in and writes source address to src\-\_\-out, destination address to dst\-\_\-out writes the payload to payload\-\_\-out before writing anything it first checks the checksum, if the checksum doesn't match, null is written to all pointers and function returns 0 on a successful opening function returns the length of the packet 

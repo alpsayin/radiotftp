@@ -1,0 +1,132 @@
+\hypertarget{ethernet_8h}{\section{\-Header \-Files/ethernet.h \-File \-Reference}
+\label{ethernet_8h}\index{\-Header Files/ethernet.\-h@{\-Header Files/ethernet.\-h}}
+}
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}~(1500)
+\item 
+\#define \hyperlink{ethernet_8h_a70b220b1b9a644faca95b620afc4eab3}{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}~6
+\item 
+\#define \hyperlink{ethernet_8h_acc147bd560d4c57fb8d4648c08cfd6b4}{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}~6
+\item 
+\#define \hyperlink{ethernet_8h_a2289718a56390672903d78801546f240}{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H}~2
+\item 
+\#define \hyperlink{ethernet_8h_a292fcaff26092f8389ddf7f5a82a65e4}{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}~4
+\item 
+\#define \hyperlink{ethernet_8h_a4247173bd02ae3b1631a4e52ff8040f6}{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}~0
+\item 
+\#define \hyperlink{ethernet_8h_aa56410c1469516b7d11a8234a962e911}{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ethernet_8h_a4247173bd02ae3b1631a4e52ff8040f6}{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ethernet_8h_a70b220b1b9a644faca95b620afc4eab3}{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ethernet_8h_ac9397247eace0e4798f55ee1c3f3ede3}{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ethernet_8h_aa56410c1469516b7d11a8234a962e911}{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ethernet_8h_acc147bd560d4c57fb8d4648c08cfd6b4}{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ethernet_8h_a8b287244dc90811357d9a997aa3eecbc}{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}~(\hyperlink{ethernet_8h_ac9397247eace0e4798f55ee1c3f3ede3}{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}+\hyperlink{ethernet_8h_a2289718a56390672903d78801546f240}{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H})
+\item 
+\#define \hyperlink{ethernet_8h_a24c0cdb5c88352bd5df43bbe7888b1df}{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}(payload\-\_\-len)~(\hyperlink{ethernet_8h_a8b287244dc90811357d9a997aa3eecbc}{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}+payload\-\_\-len)
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ethernet_8h_a0bc0ee68c8ff6f25bede3a7152bd18a7}{eth\-\_\-initialize\-\_\-network} (uint8\-\_\-t $\ast$my\-Eth)
+\item 
+uint8\-\_\-t $\ast$ \hyperlink{ethernet_8h_a3c87a55ca24254241019ff2a09f4fa98}{eth\-\_\-get\-\_\-local\-\_\-address} (uint8\-\_\-t $\ast$eth\-\_\-out)
+\item 
+uint32\-\_\-t \hyperlink{ethernet_8h_ad169cef46afe2c6b91a886dfa9435e3d}{eth\-\_\-create\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-in, uint8\-\_\-t $\ast$dst\-\_\-in, uint8\-\_\-t $\ast$payload\-\_\-in, uint16\-\_\-t payload\-\_\-length, uint8\-\_\-t $\ast$packet\-\_\-out)
+\item 
+uint8\-\_\-t \hyperlink{ethernet_8h_a094f67ae527aabcde17799f9f6de70f0}{eth\-\_\-check\-\_\-destination} (uint8\-\_\-t $\ast$my\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-dst, uint8\-\_\-t $\ast$packet\-\_\-in)
+\item 
+uint16\-\_\-t \hyperlink{ethernet_8h_a22fe617f2fcacaa6d68a2972deb67b16}{eth\-\_\-open\-\_\-packet} (uint8\-\_\-t $\ast$src\-\_\-out, uint8\-\_\-t $\ast$dst\-\_\-out, uint8\-\_\-t $\ast$payload\-\_\-out, uint8\-\_\-t $\ast$packet\-\_\-in, uint16\-\_\-t packet\-\_\-length)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{ethernet_8h_a70b220b1b9a644faca95b620afc4eab3}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H}~6}}\label{ethernet_8h_a70b220b1b9a644faca95b620afc4eab3}
+used for calculating the offsets in the packet \hypertarget{ethernet_8h_a4247173bd02ae3b1631a4e52ff8040f6}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}~0}}\label{ethernet_8h_a4247173bd02ae3b1631a4e52ff8040f6}
+location of destination in an ethernet packet \hypertarget{ethernet_8h_a292fcaff26092f8389ddf7f5a82a65e4}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-L\-E\-N\-G\-T\-H}~4}}\label{ethernet_8h_a292fcaff26092f8389ddf7f5a82a65e4}
+used for calculating the offsets in the packet \hypertarget{ethernet_8h_a24c0cdb5c88352bd5df43bbe7888b1df}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-F\-C\-S\-\_\-\-O\-F\-F\-S\-E\-T}(
+\begin{DoxyParamCaption}
+\item[{}]{payload\-\_\-len}
+\end{DoxyParamCaption}
+)~({\bf \-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}+payload\-\_\-len)}}\label{ethernet_8h_a24c0cdb5c88352bd5df43bbe7888b1df}
+location of \-F\-C\-S field in an ethernet packet, calculated with the payload length 
+\begin{DoxyParams}{\-Parameters}
+{\em payload\-\_\-len} & the length of the payload in the packet \\
+\hline
+\end{DoxyParams}
+\hypertarget{ethernet_8h_a2289718a56390672903d78801546f240}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H}~2}}\label{ethernet_8h_a2289718a56390672903d78801546f240}
+used for calculating the offsets in the packet \hypertarget{ethernet_8h_ac9397247eace0e4798f55ee1c3f3ede3}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ethernet_8h_ac9397247eace0e4798f55ee1c3f3ede3}
+location of length field in an ethernet packet \hypertarget{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}~(1500)}}\label{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}
+this definition is used to check the lengths of the payloads while creating packets \hypertarget{ethernet_8h_a8b287244dc90811357d9a997aa3eecbc}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-E\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ethernet_8h_a8b287244dc90811357d9a997aa3eecbc}
+location of payload in an ethernet packet \hypertarget{ethernet_8h_acc147bd560d4c57fb8d4648c08cfd6b4}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-L\-E\-N\-G\-T\-H}~6}}\label{ethernet_8h_acc147bd560d4c57fb8d4648c08cfd6b4}
+used for calculating the offsets in the packet \hypertarget{ethernet_8h_aa56410c1469516b7d11a8234a962e911}{\index{ethernet.\-h@{ethernet.\-h}!\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T@{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{\-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-\_\-\-S\-O\-U\-R\-C\-E\-\_\-\-O\-F\-F\-S\-E\-T}~({\bf \-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-O\-F\-F\-S\-E\-T}+{\bf \-E\-T\-H\-\_\-\-D\-E\-S\-T\-I\-N\-A\-T\-I\-O\-N\-\_\-\-L\-E\-N\-G\-T\-H})}}\label{ethernet_8h_aa56410c1469516b7d11a8234a962e911}
+location of source in an ethernet packet 
+
+\subsection{\-Function \-Documentation}
+\hypertarget{ethernet_8h_a094f67ae527aabcde17799f9f6de70f0}{\index{ethernet.\-h@{ethernet.\-h}!eth\-\_\-check\-\_\-destination@{eth\-\_\-check\-\_\-destination}}
+\index{eth\-\_\-check\-\_\-destination@{eth\-\_\-check\-\_\-destination}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{eth\-\_\-check\-\_\-destination}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf eth\-\_\-check\-\_\-destination} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-dst, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8h_a094f67ae527aabcde17799f9f6de70f0}
+\hyperlink{ethernet_8c_a094f67ae527aabcde17799f9f6de70f0}{eth\-\_\-check\-\_\-destination()} checks the destination of the packet\-\_\-in with my\-\_\-dst if packet\-\_\-dst is not null pointer writes the packet's destination to packet\-\_\-dst returns zero if the addresses match \hypertarget{ethernet_8h_ad169cef46afe2c6b91a886dfa9435e3d}{\index{ethernet.\-h@{ethernet.\-h}!eth\-\_\-create\-\_\-packet@{eth\-\_\-create\-\_\-packet}}
+\index{eth\-\_\-create\-\_\-packet@{eth\-\_\-create\-\_\-packet}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{eth\-\_\-create\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t {\bf eth\-\_\-create\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-in, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-in, }
+\item[{uint16\-\_\-t}]{payload\-\_\-length, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8h_ad169cef46afe2c6b91a886dfa9435e3d}
+\hyperlink{ethernet_8c_ad169cef46afe2c6b91a886dfa9435e3d}{eth\-\_\-create\-\_\-packet()} prepares an ethernet packet with source address, target destination address and payload and puts it in packet\-\_\-out also computes the checksum and also puts it into the packet on successful encapsulation function returns the length of the packet else returns zero \hypertarget{ethernet_8h_a3c87a55ca24254241019ff2a09f4fa98}{\index{ethernet.\-h@{ethernet.\-h}!eth\-\_\-get\-\_\-local\-\_\-address@{eth\-\_\-get\-\_\-local\-\_\-address}}
+\index{eth\-\_\-get\-\_\-local\-\_\-address@{eth\-\_\-get\-\_\-local\-\_\-address}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{eth\-\_\-get\-\_\-local\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ {\bf eth\-\_\-get\-\_\-local\-\_\-address} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{eth\-\_\-out}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8h_a3c87a55ca24254241019ff2a09f4fa98}
+\hyperlink{ethernet_8c_a3c87a55ca24254241019ff2a09f4fa98}{eth\-\_\-get\-\_\-local\-\_\-address()} return a pointer to the static local address also if the parameter is not \-N\-U\-L\-L, copies the address to parameter pointer \hypertarget{ethernet_8h_a0bc0ee68c8ff6f25bede3a7152bd18a7}{\index{ethernet.\-h@{ethernet.\-h}!eth\-\_\-initialize\-\_\-network@{eth\-\_\-initialize\-\_\-network}}
+\index{eth\-\_\-initialize\-\_\-network@{eth\-\_\-initialize\-\_\-network}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{eth\-\_\-initialize\-\_\-network}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf eth\-\_\-initialize\-\_\-network} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{my\-Eth}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8h_a0bc0ee68c8ff6f25bede3a7152bd18a7}
+\hyperlink{ethernet_8c_a0bc0ee68c8ff6f25bede3a7152bd18a7}{eth\-\_\-initialize\-\_\-network()} copies the ethernet address to static local eth address \hypertarget{ethernet_8h_a22fe617f2fcacaa6d68a2972deb67b16}{\index{ethernet.\-h@{ethernet.\-h}!eth\-\_\-open\-\_\-packet@{eth\-\_\-open\-\_\-packet}}
+\index{eth\-\_\-open\-\_\-packet@{eth\-\_\-open\-\_\-packet}!ethernet.h@{ethernet.\-h}}
+\subsubsection[{eth\-\_\-open\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf eth\-\_\-open\-\_\-packet} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{dst\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{payload\-\_\-out, }
+\item[{uint8\-\_\-t $\ast$}]{packet\-\_\-in, }
+\item[{uint16\-\_\-t}]{packet\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{ethernet_8h_a22fe617f2fcacaa6d68a2972deb67b16}
+\hyperlink{ethernet_8c_a22fe617f2fcacaa6d68a2972deb67b16}{eth\-\_\-open\-\_\-packet()} opens the packet\-\_\-in and writes source address to src\-\_\-out, destination address to dst\-\_\-out writes the payload to payload\-\_\-out before writing anything it first checks the checksum, if the checksum doesn't match, null is written to all pointers and function returns 0 on a successful opening function returns the length of the packet 

@@ -1,0 +1,55 @@
+\hypertarget{timers_8c}{\section{timers.\-c \-File \-Reference}
+\label{timers_8c}\index{timers.\-c@{timers.\-c}}
+}
+{\ttfamily \#include $<$signal.\-h$>$}\*
+{\ttfamily \#include $<$sys/time.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include \char`\"{}timers.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{timers_8c_a8bab36f8ce6abfbcadf53f15e28daa7a}{timers\-\_\-initialize} (void($\ast$handlerfptr)(int sig))
+\item 
+uint8\-\_\-t \hyperlink{timers_8c_a5e4db3f7878492e8bbb2cdedbfefbcfa}{timers\-\_\-create\-\_\-timer} (int expire\-S, int interval\-S, int expire\-U\-S, int interval\-U\-S)
+\item 
+uint8\-\_\-t \hyperlink{timers_8c_a47a0090cc18c8f7b28813d8b3fb80c07}{timers\-\_\-cancel\-\_\-timer} (void)
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{timers_8c_a84e5f9541daca9ca1e2b3c185ae4dce9}{main\-Timer\-Handler} )(int sig)
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{timers_8c_a47a0090cc18c8f7b28813d8b3fb80c07}{\index{timers.\-c@{timers.\-c}!timers\-\_\-cancel\-\_\-timer@{timers\-\_\-cancel\-\_\-timer}}
+\index{timers\-\_\-cancel\-\_\-timer@{timers\-\_\-cancel\-\_\-timer}!timers.c@{timers.\-c}}
+\subsubsection[{timers\-\_\-cancel\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-cancel\-\_\-timer} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{timers_8c_a47a0090cc18c8f7b28813d8b3fb80c07}
+\hypertarget{timers_8c_a5e4db3f7878492e8bbb2cdedbfefbcfa}{\index{timers.\-c@{timers.\-c}!timers\-\_\-create\-\_\-timer@{timers\-\_\-create\-\_\-timer}}
+\index{timers\-\_\-create\-\_\-timer@{timers\-\_\-create\-\_\-timer}!timers.c@{timers.\-c}}
+\subsubsection[{timers\-\_\-create\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-create\-\_\-timer} (
+\begin{DoxyParamCaption}
+\item[{int}]{expire\-S, }
+\item[{int}]{interval\-S, }
+\item[{int}]{expire\-U\-S, }
+\item[{int}]{interval\-U\-S}
+\end{DoxyParamCaption}
+)}}\label{timers_8c_a5e4db3f7878492e8bbb2cdedbfefbcfa}
+\hypertarget{timers_8c_a8bab36f8ce6abfbcadf53f15e28daa7a}{\index{timers.\-c@{timers.\-c}!timers\-\_\-initialize@{timers\-\_\-initialize}}
+\index{timers\-\_\-initialize@{timers\-\_\-initialize}!timers.c@{timers.\-c}}
+\subsubsection[{timers\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf timers\-\_\-initialize} (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(int sig)}]{handlerfptr}
+\end{DoxyParamCaption}
+)}}\label{timers_8c_a8bab36f8ce6abfbcadf53f15e28daa7a}
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{timers_8c_a84e5f9541daca9ca1e2b3c185ae4dce9}{\index{timers.\-c@{timers.\-c}!main\-Timer\-Handler@{main\-Timer\-Handler}}
+\index{main\-Timer\-Handler@{main\-Timer\-Handler}!timers.c@{timers.\-c}}
+\subsubsection[{main\-Timer\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ {\bf main\-Timer\-Handler})(int sig)}}\label{timers_8c_a84e5f9541daca9ca1e2b3c185ae4dce9}

@@ -1,0 +1,414 @@
+\hypertarget{radiotftp_8c}{\section{radiotftp.\-c \-File \-Reference}
+\label{radiotftp_8c}\index{radiotftp.\-c@{radiotftp.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\*
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$termio.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$sys/fcntl.\-h$>$}\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$signal.\-h$>$}\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$sys/time.\-h$>$}\*
+{\ttfamily \#include $<$sys/select.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+{\ttfamily \#include \char`\"{}lock.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}devtag-\/allinone.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}manchester.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ethernet.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}udp\-\_\-ip.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}tftp.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}timers.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}radiotftp.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ax25.\-h\char`\"{}}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{radiotftp_8c_a5fab3ee704f99a74b636d2111747651f}{\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N}~0
+\item 
+\#define \hyperlink{radiotftp_8c_ab91980399a96a123194de357fb635d8c}{\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D}
+\item 
+\#define \hyperlink{radiotftp_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}{\-V\-E\-R\-S\-I\-O\-N}~\char`\"{}1.\-9 010412\char`\"{}
+\item 
+\#define \hyperlink{radiotftp_8c_a7252abca9c1ab5f4ef517b87e5ab12bb}{\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E}~28
+\item 
+\#define \hyperlink{radiotftp_8c_a66c7984dbe4ba8f39e6f94fbd0a58a00}{\-C\-T\-R\-L\-D}~4
+\item 
+\#define \hyperlink{radiotftp_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}{\-P\-\_\-\-L\-O\-C\-K}~\char`\"{}/var/lock\char`\"{}
+\item 
+\#define \hyperlink{radiotftp_8c_ac489ab2eb5b04be7bc27c5170731660c}{\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T}~(+2)
+\item 
+\#define \hyperlink{radiotftp_8c_a9143476b0ebb74e02907b696aeb1c198}{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X}~\char`\"{}linefeed\char`\"{}
+\item 
+\#define \hyperlink{radiotftp_8c_a2ee0a2d5037245a01df01fc2b5dbbc9e}{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X}~\char`\"{}.txt\char`\"{}
+\item 
+\#define \hyperlink{radiotftp_8c_a3e916db626fcc021393ce9c805132f90}{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}~10
+\item 
+\#define \hyperlink{radiotftp_8c_a07ab47e2ed266cd713cdd5fc34b91b5c}{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}~4
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{radiotftp_8c_ae8605e2b78cd4a81b6c6b5c30cb7366a}{usage} (void)
+\item 
+void \hyperlink{radiotftp_8c_ac7628f426e4cfb459ddecd1722917b0c}{print\-\_\-time} (char $\ast$prefix)
+\item 
+int \hyperlink{radiotftp_8c_a0e74203991ca6e0466df479fa6fb9ced}{sprint\-\_\-time} (char $\ast$outbuf, char $\ast$prefix, char $\ast$postfix)
+\item 
+int \hyperlink{radiotftp_8c_a19237cd1fbe675cc1de001d51b359a90}{create\-Temp\-File} (char $\ast$prefix, char $\ast$postfix)
+\item 
+int \hyperlink{radiotftp_8c_a93ab3d45cefee4773c4078065114c54a}{delete\-Temp\-File} ()
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a40a92ae94efe8c6c537774eed4d58ebe}{set\-R\-T\-S} (uint8\-\_\-t level)
+\item 
+\hyperlink{radiotftp_8c_ae0a2389e825cb4eba2606ddf4287aa66}{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N} (idle\-\_\-timer\-\_\-handler)
+\item 
+void \hyperlink{radiotftp_8c_adce6d41f20444faf3fdf3e5018b07248}{safe\-\_\-exit} (int ret\-Val)
+\item 
+void \hyperlink{radiotftp_8c_a5527c1b76a2d10a1d432e81e8e6d7275}{sig\-I\-N\-T\-\_\-handler} (int sig)
+\item 
+void \hyperlink{radiotftp_8c_afc5eebfc4debddb456524d605bc2b960}{sig\-I\-O\-\_\-handler} (int status)
+\item 
+void \hyperlink{radiotftp_8c_a660ec4897a91575b19b2b23c3427606c}{sig\-V\-T\-A\-L\-R\-M\-\_\-handler} (int sig)
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_adc21a22a257d7d47d87e987b9fc2aa90}{queue\-Serial\-Data} (uint8\-\_\-t $\ast$src, uint16\-\_\-t src\-\_\-port, uint8\-\_\-t $\ast$dst, uint16\-\_\-t dst\-\_\-port, uint8\-\_\-t $\ast$dataptr, uint16\-\_\-t datalen)
+\item 
+uint16\-\_\-t \hyperlink{radiotftp_8c_a0fda20768d86bd75d8578c6379de08d2}{transmit\-Serial\-Data} (void)
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a351fb727125bc24c7324ebbe8b8bc94c}{udp\-\_\-packet\-\_\-demultiplexer} (uint8\-\_\-t $\ast$src, uint16\-\_\-t src\-\_\-port, uint8\-\_\-t $\ast$dst, uint16\-\_\-t dst\-\_\-port, uint8\-\_\-t $\ast$payload, uint16\-\_\-t len)
+\item 
+int \hyperlink{radiotftp_8c_adacbe0175a79dff748855d8c9839f82b}{main} (int ac, char $\ast$av\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\-F\-I\-L\-E $\ast$ \hyperlink{radiotftp_8c_a998e8cdb1a5cab218bde1de1009e3931}{temp\-File}
+\item 
+char \hyperlink{radiotftp_8c_a4c92107f39641b109a1a5ccb8d983057}{temp\-File\-Name} \mbox{[}64\mbox{]}
+\item 
+char \hyperlink{radiotftp_8c_a934394ef9a2a49025f911c5733e570f4}{dial\-\_\-tty} \mbox{[}128\mbox{]}
+\item 
+const uint8\-\_\-t \hyperlink{radiotftp_8c_a6e0508d2f3fe444e2c86e784785bb784}{my\-\_\-ip\-\_\-address} \mbox{[}6\mbox{]} = \{0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6\}
+\item 
+const uint8\-\_\-t \hyperlink{radiotftp_8c_a4a9da2609a011d6cd6be13877bd1e1a6}{broadcast\-\_\-address} \mbox{[}6\mbox{]} = \{0xff, 0xff, 0xff, 0xff, 0xff, 0xff\}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a1a64ce69b7c519a04d2364a319e22769}{io} \mbox{[}\-B\-U\-F\-S\-I\-Z\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a23a861dc493bd6b8f4542432ff6b6b8c}{buf} \mbox{[}2 $\ast$\-B\-U\-F\-S\-I\-Z\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_aaebe5dae75e1782b4af469f58f3e6928}{rawdata\-\_\-buffer} \mbox{[}\hyperlink{udp__ip_8h_af4316ac3775e3125bab44d448a57603e}{\-U\-D\-P\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a30e47067dc7a7584f9e21e7d7c57cc04}{manchester\-\_\-buffer} \mbox{[}(\hyperlink{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+20)$\ast$2\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a511a95c8b4c387e3eb36ea7f955262d7}{ethernet\-\_\-buffer} \mbox{[}\hyperlink{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+20\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_aef489432b151f8bbcf1cfd6768d4ecbd}{udp\-\_\-buffer} \mbox{[}\hyperlink{udp__ip_8h_af4316ac3775e3125bab44d448a57603e}{\-U\-D\-P\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+18\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a66222107ba8ce278c0ef157657d30c8a}{transmit\-\_\-buffer} \mbox{[}\hyperlink{ethernet_8h_aca9b2ce9758b656d7c8bb6cb7703e4ba}{\-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H} $\ast$2\mbox{]}
+\item 
+uint16\-\_\-t \hyperlink{radiotftp_8c_af39615e6e63a7228eaf9ab46bdedbc3a}{transmit\-\_\-length} = 0
+\item 
+int \hyperlink{radiotftp_8c_adc27b6689a1e932f70c4cc706b723ea3}{background} = 0
+\item 
+long \hyperlink{radiotftp_8c_a3128588f7aafa08fbf72984b61b9ac51}{baud} = \-B9600
+\item 
+struct termios tp \hyperlink{radiotftp_8c_a5b7b38070243fb49133d8ea576c5c103}{old}
+\item 
+struct sigaction \hyperlink{radiotftp_8c_abbbcf4205db563bd9d8e3637acc82c38}{sa\-\_\-io}
+\item 
+struct sigaction \hyperlink{radiotftp_8c_a5edba51aeb9384f25d7dc659db848817}{sa\-\_\-alarm}
+\item 
+int \hyperlink{radiotftp_8c_ad5d8ff630186cb56cbc4b9cb931a5002}{serialport\-Fd}
+\item 
+volatile uint8\-\_\-t \hyperlink{radiotftp_8c_a4506902b6476e2c20a3cf30b0144443f}{io\-\_\-flag} = 0
+\item 
+volatile uint8\-\_\-t \hyperlink{radiotftp_8c_a0fddd88045c5b5bcecfec29219fbec80}{alarm\-\_\-flag} = 0
+\item 
+volatile uint8\-\_\-t \hyperlink{radiotftp_8c_accb4ae119b6b85eda30f468b716c6b83}{timer\-\_\-flag} = 0
+\item 
+volatile uint8\-\_\-t \hyperlink{radiotftp_8c_aecd60782e894cf84cf45e3ea2901a687}{queue\-\_\-flag} = 0
+\item 
+volatile uint8\-\_\-t \hyperlink{radiotftp_8c_a02fecce62db76d446cceec8d87e330f9}{idle\-\_\-flag} = 0
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_a4db57bd3c5ef2c723afdee3615fd7077}{eth\-\_\-src} \mbox{[}6\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_ac3176c49c4e4663ca7edde9478b00176}{eth\-\_\-dst} \mbox{[}6\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_ad5bd9ea4b691e5f10d763eb7282b7d32}{udp\-\_\-src} \mbox{[}6\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8c_ae706fdaab1d55a0f9318245e0fc23903}{udp\-\_\-dst} \mbox{[}6\mbox{]}
+\item 
+uint16\-\_\-t \hyperlink{radiotftp_8c_aeb47530036f11b906499d0d95bb34ec9}{udp\-\_\-src\-\_\-prt}
+\item 
+uint16\-\_\-t \hyperlink{radiotftp_8c_a6f7563fd7e047c9d84fae0e849a4d22c}{udp\-\_\-dst\-\_\-prt}
+\item 
+unsigned char \hyperlink{radiotftp_8c_a0ee790d630b0a4def6fb76e627ee71f2}{preamble} \mbox{[}\hyperlink{radiotftp_8c_a3e916db626fcc021393ce9c805132f90}{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]} = \{0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55\}
+\item 
+unsigned char \hyperlink{radiotftp_8c_a96d3c0f4106cb573e5ef72eb3fabc438}{syncword} \mbox{[}\hyperlink{radiotftp_8c_a07ab47e2ed266cd713cdd5fc34b91b5c}{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]} = \{0x\-A\-A, 0x55, 0x\-A\-A, 0x55\}
+\item 
+uint64\-\_\-t \hyperlink{radiotftp_8c_a990cc2e56a8f075b041b75a912823e94}{signal\-Count} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{radiotftp_8c_a66c7984dbe4ba8f39e6f94fbd0a58a00}{\index{radiotftp.\-c@{radiotftp.\-c}!\-C\-T\-R\-L\-D@{\-C\-T\-R\-L\-D}}
+\index{\-C\-T\-R\-L\-D@{\-C\-T\-R\-L\-D}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-C\-T\-R\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-C\-T\-R\-L\-D}~4}}\label{radiotftp_8c_a66c7984dbe4ba8f39e6f94fbd0a58a00}
+\hypertarget{radiotftp_8c_a7252abca9c1ab5f4ef517b87e5ab12bb}{\index{radiotftp.\-c@{radiotftp.\-c}!\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E@{\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E}}
+\index{\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E@{\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-N\-D\-\_\-\-O\-F\-\_\-\-F\-I\-L\-E}~28}}\label{radiotftp_8c_a7252abca9c1ab5f4ef517b87e5ab12bb}
+\hypertarget{radiotftp_8c_ab91980399a96a123194de357fb635d8c}{\index{radiotftp.\-c@{radiotftp.\-c}!\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D@{\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D}}
+\index{\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D@{\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-E\-T\-H\-E\-R\-N\-E\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D}}}\label{radiotftp_8c_ab91980399a96a123194de357fb635d8c}
+\hypertarget{radiotftp_8c_ac489ab2eb5b04be7bc27c5170731660c}{\index{radiotftp.\-c@{radiotftp.\-c}!\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T@{\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T@{\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-G\-M\-T\-\_\-\-O\-F\-F\-S\-E\-T}~(+2)}}\label{radiotftp_8c_ac489ab2eb5b04be7bc27c5170731660c}
+\hypertarget{radiotftp_8c_a5fab3ee704f99a74b636d2111747651f}{\index{radiotftp.\-c@{radiotftp.\-c}!\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N@{\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N}}
+\index{\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N@{\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-I\-O\-\_\-\-D\-R\-I\-V\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-I\-O\-\_\-\-D\-R\-I\-V\-E\-N}~0}}\label{radiotftp_8c_a5fab3ee704f99a74b636d2111747651f}
+\hypertarget{radiotftp_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}{\index{radiotftp.\-c@{radiotftp.\-c}!\-P\-\_\-\-L\-O\-C\-K@{\-P\-\_\-\-L\-O\-C\-K}}
+\index{\-P\-\_\-\-L\-O\-C\-K@{\-P\-\_\-\-L\-O\-C\-K}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-P\-\_\-\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-\_\-\-L\-O\-C\-K}~\char`\"{}/var/lock\char`\"{}}}\label{radiotftp_8c_a0f3d3d6df8c4b9c22d65b4dc360637f6}
+\hypertarget{radiotftp_8c_a3e916db626fcc021393ce9c805132f90}{\index{radiotftp.\-c@{radiotftp.\-c}!\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H@{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}~10}}\label{radiotftp_8c_a3e916db626fcc021393ce9c805132f90}
+\hypertarget{radiotftp_8c_a07ab47e2ed266cd713cdd5fc34b91b5c}{\index{radiotftp.\-c@{radiotftp.\-c}!\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H@{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H@{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}~4}}\label{radiotftp_8c_a07ab47e2ed266cd713cdd5fc34b91b5c}
+\hypertarget{radiotftp_8c_a2ee0a2d5037245a01df01fc2b5dbbc9e}{\index{radiotftp.\-c@{radiotftp.\-c}!\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X@{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X}}
+\index{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X@{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-O\-S\-T\-F\-I\-X}~\char`\"{}.txt\char`\"{}}}\label{radiotftp_8c_a2ee0a2d5037245a01df01fc2b5dbbc9e}
+\hypertarget{radiotftp_8c_a9143476b0ebb74e02907b696aeb1c198}{\index{radiotftp.\-c@{radiotftp.\-c}!\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X@{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X}}
+\index{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X@{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-T\-E\-M\-P\-F\-I\-L\-E\-\_\-\-P\-R\-E\-F\-I\-X}~\char`\"{}linefeed\char`\"{}}}\label{radiotftp_8c_a9143476b0ebb74e02907b696aeb1c198}
+\hypertarget{radiotftp_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}{\index{radiotftp.\-c@{radiotftp.\-c}!\-V\-E\-R\-S\-I\-O\-N@{\-V\-E\-R\-S\-I\-O\-N}}
+\index{\-V\-E\-R\-S\-I\-O\-N@{\-V\-E\-R\-S\-I\-O\-N}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-V\-E\-R\-S\-I\-O\-N}~\char`\"{}1.\-9 010412\char`\"{}}}\label{radiotftp_8c_a1c6d5de492ac61ad29aec7aa9a436bbf}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{radiotftp_8c_a19237cd1fbe675cc1de001d51b359a90}{\index{radiotftp.\-c@{radiotftp.\-c}!create\-Temp\-File@{create\-Temp\-File}}
+\index{create\-Temp\-File@{create\-Temp\-File}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{create\-Temp\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf create\-Temp\-File} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{prefix, }
+\item[{char $\ast$}]{postfix}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a19237cd1fbe675cc1de001d51b359a90}
+\hypertarget{radiotftp_8c_a93ab3d45cefee4773c4078065114c54a}{\index{radiotftp.\-c@{radiotftp.\-c}!delete\-Temp\-File@{delete\-Temp\-File}}
+\index{delete\-Temp\-File@{delete\-Temp\-File}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{delete\-Temp\-File}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf delete\-Temp\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a93ab3d45cefee4773c4078065114c54a}
+\hypertarget{radiotftp_8c_adacbe0175a79dff748855d8c9839f82b}{\index{radiotftp.\-c@{radiotftp.\-c}!main@{main}}
+\index{main@{main}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{ac, }
+\item[{char $\ast$}]{av\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_adacbe0175a79dff748855d8c9839f82b}
+\hypertarget{radiotftp_8c_ac7628f426e4cfb459ddecd1722917b0c}{\index{radiotftp.\-c@{radiotftp.\-c}!print\-\_\-time@{print\-\_\-time}}
+\index{print\-\_\-time@{print\-\_\-time}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{print\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-\_\-time} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_ac7628f426e4cfb459ddecd1722917b0c}
+\hypertarget{radiotftp_8c_adc21a22a257d7d47d87e987b9fc2aa90}{\index{radiotftp.\-c@{radiotftp.\-c}!queue\-Serial\-Data@{queue\-Serial\-Data}}
+\index{queue\-Serial\-Data@{queue\-Serial\-Data}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{queue\-Serial\-Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf queue\-Serial\-Data} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src, }
+\item[{uint16\-\_\-t}]{src\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dst, }
+\item[{uint16\-\_\-t}]{dst\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dataptr, }
+\item[{uint16\-\_\-t}]{datalen}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_adc21a22a257d7d47d87e987b9fc2aa90}
+\hypertarget{radiotftp_8c_adce6d41f20444faf3fdf3e5018b07248}{\index{radiotftp.\-c@{radiotftp.\-c}!safe\-\_\-exit@{safe\-\_\-exit}}
+\index{safe\-\_\-exit@{safe\-\_\-exit}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{safe\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf safe\-\_\-exit} (
+\begin{DoxyParamCaption}
+\item[{int}]{ret\-Val}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_adce6d41f20444faf3fdf3e5018b07248}
+\hypertarget{radiotftp_8c_a40a92ae94efe8c6c537774eed4d58ebe}{\index{radiotftp.\-c@{radiotftp.\-c}!set\-R\-T\-S@{set\-R\-T\-S}}
+\index{set\-R\-T\-S@{set\-R\-T\-S}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{set\-R\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf set\-R\-T\-S} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{level}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a40a92ae94efe8c6c537774eed4d58ebe}
+\hypertarget{radiotftp_8c_a5527c1b76a2d10a1d432e81e8e6d7275}{\index{radiotftp.\-c@{radiotftp.\-c}!sig\-I\-N\-T\-\_\-handler@{sig\-I\-N\-T\-\_\-handler}}
+\index{sig\-I\-N\-T\-\_\-handler@{sig\-I\-N\-T\-\_\-handler}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sig\-I\-N\-T\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-I\-N\-T\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a5527c1b76a2d10a1d432e81e8e6d7275}
+\hypertarget{radiotftp_8c_afc5eebfc4debddb456524d605bc2b960}{\index{radiotftp.\-c@{radiotftp.\-c}!sig\-I\-O\-\_\-handler@{sig\-I\-O\-\_\-handler}}
+\index{sig\-I\-O\-\_\-handler@{sig\-I\-O\-\_\-handler}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sig\-I\-O\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-I\-O\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{status}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_afc5eebfc4debddb456524d605bc2b960}
+\hypertarget{radiotftp_8c_a660ec4897a91575b19b2b23c3427606c}{\index{radiotftp.\-c@{radiotftp.\-c}!sig\-V\-T\-A\-L\-R\-M\-\_\-handler@{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}}
+\index{sig\-V\-T\-A\-L\-R\-M\-\_\-handler@{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-V\-T\-A\-L\-R\-M\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a660ec4897a91575b19b2b23c3427606c}
+\hypertarget{radiotftp_8c_a0e74203991ca6e0466df479fa6fb9ced}{\index{radiotftp.\-c@{radiotftp.\-c}!sprint\-\_\-time@{sprint\-\_\-time}}
+\index{sprint\-\_\-time@{sprint\-\_\-time}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sprint\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf sprint\-\_\-time} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{outbuf, }
+\item[{char $\ast$}]{prefix, }
+\item[{char $\ast$}]{postfix}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a0e74203991ca6e0466df479fa6fb9ced}
+\hypertarget{radiotftp_8c_ae0a2389e825cb4eba2606ddf4287aa66}{\index{radiotftp.\-c@{radiotftp.\-c}!\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}}
+\index{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N} (
+\begin{DoxyParamCaption}
+\item[{idle\-\_\-timer\-\_\-handler}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_ae0a2389e825cb4eba2606ddf4287aa66}
+\hypertarget{radiotftp_8c_a0fda20768d86bd75d8578c6379de08d2}{\index{radiotftp.\-c@{radiotftp.\-c}!transmit\-Serial\-Data@{transmit\-Serial\-Data}}
+\index{transmit\-Serial\-Data@{transmit\-Serial\-Data}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{transmit\-Serial\-Data}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf transmit\-Serial\-Data} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a0fda20768d86bd75d8578c6379de08d2}
+\hypertarget{radiotftp_8c_a351fb727125bc24c7324ebbe8b8bc94c}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-packet\-\_\-demultiplexer@{udp\-\_\-packet\-\_\-demultiplexer}}
+\index{udp\-\_\-packet\-\_\-demultiplexer@{udp\-\_\-packet\-\_\-demultiplexer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-packet\-\_\-demultiplexer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf udp\-\_\-packet\-\_\-demultiplexer} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src, }
+\item[{uint16\-\_\-t}]{src\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dst, }
+\item[{uint16\-\_\-t}]{dst\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_a351fb727125bc24c7324ebbe8b8bc94c}
+\hypertarget{radiotftp_8c_ae8605e2b78cd4a81b6c6b5c30cb7366a}{\index{radiotftp.\-c@{radiotftp.\-c}!usage@{usage}}
+\index{usage@{usage}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf usage} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8c_ae8605e2b78cd4a81b6c6b5c30cb7366a}
+
+
+\subsection{\-Variable \-Documentation}
+\hypertarget{radiotftp_8c_a0fddd88045c5b5bcecfec29219fbec80}{\index{radiotftp.\-c@{radiotftp.\-c}!alarm\-\_\-flag@{alarm\-\_\-flag}}
+\index{alarm\-\_\-flag@{alarm\-\_\-flag}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{alarm\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf alarm\-\_\-flag} = 0}}\label{radiotftp_8c_a0fddd88045c5b5bcecfec29219fbec80}
+\hypertarget{radiotftp_8c_adc27b6689a1e932f70c4cc706b723ea3}{\index{radiotftp.\-c@{radiotftp.\-c}!background@{background}}
+\index{background@{background}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{background}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf background} = 0}}\label{radiotftp_8c_adc27b6689a1e932f70c4cc706b723ea3}
+\hypertarget{radiotftp_8c_a3128588f7aafa08fbf72984b61b9ac51}{\index{radiotftp.\-c@{radiotftp.\-c}!baud@{baud}}
+\index{baud@{baud}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{baud}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf baud} = \-B9600}}\label{radiotftp_8c_a3128588f7aafa08fbf72984b61b9ac51}
+\hypertarget{radiotftp_8c_a4a9da2609a011d6cd6be13877bd1e1a6}{\index{radiotftp.\-c@{radiotftp.\-c}!broadcast\-\_\-address@{broadcast\-\_\-address}}
+\index{broadcast\-\_\-address@{broadcast\-\_\-address}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{broadcast\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t {\bf broadcast\-\_\-address}\mbox{[}6\mbox{]} = \{0xff, 0xff, 0xff, 0xff, 0xff, 0xff\}}}\label{radiotftp_8c_a4a9da2609a011d6cd6be13877bd1e1a6}
+\hypertarget{radiotftp_8c_a23a861dc493bd6b8f4542432ff6b6b8c}{\index{radiotftp.\-c@{radiotftp.\-c}!buf@{buf}}
+\index{buf@{buf}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{buf}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf buf}\mbox{[}2 $\ast$\-B\-U\-F\-S\-I\-Z\mbox{]}}}\label{radiotftp_8c_a23a861dc493bd6b8f4542432ff6b6b8c}
+\hypertarget{radiotftp_8c_a934394ef9a2a49025f911c5733e570f4}{\index{radiotftp.\-c@{radiotftp.\-c}!dial\-\_\-tty@{dial\-\_\-tty}}
+\index{dial\-\_\-tty@{dial\-\_\-tty}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{dial\-\_\-tty}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf dial\-\_\-tty}\mbox{[}128\mbox{]}}}\label{radiotftp_8c_a934394ef9a2a49025f911c5733e570f4}
+\hypertarget{radiotftp_8c_ac3176c49c4e4663ca7edde9478b00176}{\index{radiotftp.\-c@{radiotftp.\-c}!eth\-\_\-dst@{eth\-\_\-dst}}
+\index{eth\-\_\-dst@{eth\-\_\-dst}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{eth\-\_\-dst}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf eth\-\_\-dst}\mbox{[}6\mbox{]}}}\label{radiotftp_8c_ac3176c49c4e4663ca7edde9478b00176}
+\hypertarget{radiotftp_8c_a4db57bd3c5ef2c723afdee3615fd7077}{\index{radiotftp.\-c@{radiotftp.\-c}!eth\-\_\-src@{eth\-\_\-src}}
+\index{eth\-\_\-src@{eth\-\_\-src}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{eth\-\_\-src}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf eth\-\_\-src}\mbox{[}6\mbox{]}}}\label{radiotftp_8c_a4db57bd3c5ef2c723afdee3615fd7077}
+\hypertarget{radiotftp_8c_a511a95c8b4c387e3eb36ea7f955262d7}{\index{radiotftp.\-c@{radiotftp.\-c}!ethernet\-\_\-buffer@{ethernet\-\_\-buffer}}
+\index{ethernet\-\_\-buffer@{ethernet\-\_\-buffer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{ethernet\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf ethernet\-\_\-buffer}\mbox{[}{\bf \-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+20\mbox{]}}}\label{radiotftp_8c_a511a95c8b4c387e3eb36ea7f955262d7}
+\hypertarget{radiotftp_8c_a02fecce62db76d446cceec8d87e330f9}{\index{radiotftp.\-c@{radiotftp.\-c}!idle\-\_\-flag@{idle\-\_\-flag}}
+\index{idle\-\_\-flag@{idle\-\_\-flag}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{idle\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf idle\-\_\-flag} = 0}}\label{radiotftp_8c_a02fecce62db76d446cceec8d87e330f9}
+\hypertarget{radiotftp_8c_a1a64ce69b7c519a04d2364a319e22769}{\index{radiotftp.\-c@{radiotftp.\-c}!io@{io}}
+\index{io@{io}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{io}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf io}\mbox{[}\-B\-U\-F\-S\-I\-Z\mbox{]}}}\label{radiotftp_8c_a1a64ce69b7c519a04d2364a319e22769}
+\hypertarget{radiotftp_8c_a4506902b6476e2c20a3cf30b0144443f}{\index{radiotftp.\-c@{radiotftp.\-c}!io\-\_\-flag@{io\-\_\-flag}}
+\index{io\-\_\-flag@{io\-\_\-flag}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{io\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf io\-\_\-flag} = 0}}\label{radiotftp_8c_a4506902b6476e2c20a3cf30b0144443f}
+\hypertarget{radiotftp_8c_a30e47067dc7a7584f9e21e7d7c57cc04}{\index{radiotftp.\-c@{radiotftp.\-c}!manchester\-\_\-buffer@{manchester\-\_\-buffer}}
+\index{manchester\-\_\-buffer@{manchester\-\_\-buffer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{manchester\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf manchester\-\_\-buffer}\mbox{[}({\bf \-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+20)$\ast$2\mbox{]}}}\label{radiotftp_8c_a30e47067dc7a7584f9e21e7d7c57cc04}
+\hypertarget{radiotftp_8c_a6e0508d2f3fe444e2c86e784785bb784}{\index{radiotftp.\-c@{radiotftp.\-c}!my\-\_\-ip\-\_\-address@{my\-\_\-ip\-\_\-address}}
+\index{my\-\_\-ip\-\_\-address@{my\-\_\-ip\-\_\-address}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{my\-\_\-ip\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t {\bf my\-\_\-ip\-\_\-address}\mbox{[}6\mbox{]} = \{0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6\}}}\label{radiotftp_8c_a6e0508d2f3fe444e2c86e784785bb784}
+\hypertarget{radiotftp_8c_a5b7b38070243fb49133d8ea576c5c103}{\index{radiotftp.\-c@{radiotftp.\-c}!old@{old}}
+\index{old@{old}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{old}]{\setlength{\rightskip}{0pt plus 5cm}struct termios tp {\bf old}}}\label{radiotftp_8c_a5b7b38070243fb49133d8ea576c5c103}
+\hypertarget{radiotftp_8c_a0ee790d630b0a4def6fb76e627ee71f2}{\index{radiotftp.\-c@{radiotftp.\-c}!preamble@{preamble}}
+\index{preamble@{preamble}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{preamble}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char {\bf preamble}\mbox{[}{\bf \-P\-R\-E\-A\-M\-B\-L\-E\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]} = \{0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55\}}}\label{radiotftp_8c_a0ee790d630b0a4def6fb76e627ee71f2}
+\hypertarget{radiotftp_8c_aecd60782e894cf84cf45e3ea2901a687}{\index{radiotftp.\-c@{radiotftp.\-c}!queue\-\_\-flag@{queue\-\_\-flag}}
+\index{queue\-\_\-flag@{queue\-\_\-flag}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{queue\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf queue\-\_\-flag} = 0}}\label{radiotftp_8c_aecd60782e894cf84cf45e3ea2901a687}
+\hypertarget{radiotftp_8c_aaebe5dae75e1782b4af469f58f3e6928}{\index{radiotftp.\-c@{radiotftp.\-c}!rawdata\-\_\-buffer@{rawdata\-\_\-buffer}}
+\index{rawdata\-\_\-buffer@{rawdata\-\_\-buffer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{rawdata\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf rawdata\-\_\-buffer}\mbox{[}{\bf \-U\-D\-P\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]}}}\label{radiotftp_8c_aaebe5dae75e1782b4af469f58f3e6928}
+\hypertarget{radiotftp_8c_a5edba51aeb9384f25d7dc659db848817}{\index{radiotftp.\-c@{radiotftp.\-c}!sa\-\_\-alarm@{sa\-\_\-alarm}}
+\index{sa\-\_\-alarm@{sa\-\_\-alarm}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sa\-\_\-alarm}]{\setlength{\rightskip}{0pt plus 5cm}struct sigaction {\bf sa\-\_\-alarm}}}\label{radiotftp_8c_a5edba51aeb9384f25d7dc659db848817}
+\hypertarget{radiotftp_8c_abbbcf4205db563bd9d8e3637acc82c38}{\index{radiotftp.\-c@{radiotftp.\-c}!sa\-\_\-io@{sa\-\_\-io}}
+\index{sa\-\_\-io@{sa\-\_\-io}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{sa\-\_\-io}]{\setlength{\rightskip}{0pt plus 5cm}struct sigaction {\bf sa\-\_\-io}}}\label{radiotftp_8c_abbbcf4205db563bd9d8e3637acc82c38}
+\hypertarget{radiotftp_8c_ad5d8ff630186cb56cbc4b9cb931a5002}{\index{radiotftp.\-c@{radiotftp.\-c}!serialport\-Fd@{serialport\-Fd}}
+\index{serialport\-Fd@{serialport\-Fd}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{serialport\-Fd}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf serialport\-Fd}}}\label{radiotftp_8c_ad5d8ff630186cb56cbc4b9cb931a5002}
+\hypertarget{radiotftp_8c_a990cc2e56a8f075b041b75a912823e94}{\index{radiotftp.\-c@{radiotftp.\-c}!signal\-Count@{signal\-Count}}
+\index{signal\-Count@{signal\-Count}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{signal\-Count}]{\setlength{\rightskip}{0pt plus 5cm}uint64\-\_\-t {\bf signal\-Count} = 0}}\label{radiotftp_8c_a990cc2e56a8f075b041b75a912823e94}
+\hypertarget{radiotftp_8c_a96d3c0f4106cb573e5ef72eb3fabc438}{\index{radiotftp.\-c@{radiotftp.\-c}!syncword@{syncword}}
+\index{syncword@{syncword}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{syncword}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char {\bf syncword}\mbox{[}{\bf \-S\-Y\-N\-C\-\_\-\-L\-E\-N\-G\-T\-H}\mbox{]} = \{0x\-A\-A, 0x55, 0x\-A\-A, 0x55\}}}\label{radiotftp_8c_a96d3c0f4106cb573e5ef72eb3fabc438}
+\hypertarget{radiotftp_8c_a998e8cdb1a5cab218bde1de1009e3931}{\index{radiotftp.\-c@{radiotftp.\-c}!temp\-File@{temp\-File}}
+\index{temp\-File@{temp\-File}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{temp\-File}]{\setlength{\rightskip}{0pt plus 5cm}\-F\-I\-L\-E$\ast$ {\bf temp\-File}}}\label{radiotftp_8c_a998e8cdb1a5cab218bde1de1009e3931}
+\hypertarget{radiotftp_8c_a4c92107f39641b109a1a5ccb8d983057}{\index{radiotftp.\-c@{radiotftp.\-c}!temp\-File\-Name@{temp\-File\-Name}}
+\index{temp\-File\-Name@{temp\-File\-Name}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{temp\-File\-Name}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf temp\-File\-Name}\mbox{[}64\mbox{]}}}\label{radiotftp_8c_a4c92107f39641b109a1a5ccb8d983057}
+\hypertarget{radiotftp_8c_accb4ae119b6b85eda30f468b716c6b83}{\index{radiotftp.\-c@{radiotftp.\-c}!timer\-\_\-flag@{timer\-\_\-flag}}
+\index{timer\-\_\-flag@{timer\-\_\-flag}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{timer\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t {\bf timer\-\_\-flag} = 0}}\label{radiotftp_8c_accb4ae119b6b85eda30f468b716c6b83}
+\hypertarget{radiotftp_8c_a66222107ba8ce278c0ef157657d30c8a}{\index{radiotftp.\-c@{radiotftp.\-c}!transmit\-\_\-buffer@{transmit\-\_\-buffer}}
+\index{transmit\-\_\-buffer@{transmit\-\_\-buffer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{transmit\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf transmit\-\_\-buffer}\mbox{[}{\bf \-E\-T\-H\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H} $\ast$2\mbox{]}}}\label{radiotftp_8c_a66222107ba8ce278c0ef157657d30c8a}
+\hypertarget{radiotftp_8c_af39615e6e63a7228eaf9ab46bdedbc3a}{\index{radiotftp.\-c@{radiotftp.\-c}!transmit\-\_\-length@{transmit\-\_\-length}}
+\index{transmit\-\_\-length@{transmit\-\_\-length}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{transmit\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf transmit\-\_\-length} = 0}}\label{radiotftp_8c_af39615e6e63a7228eaf9ab46bdedbc3a}
+\hypertarget{radiotftp_8c_aef489432b151f8bbcf1cfd6768d4ecbd}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-buffer@{udp\-\_\-buffer}}
+\index{udp\-\_\-buffer@{udp\-\_\-buffer}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf udp\-\_\-buffer}\mbox{[}{\bf \-U\-D\-P\-\_\-\-M\-A\-X\-\_\-\-P\-A\-Y\-L\-O\-A\-D\-\_\-\-L\-E\-N\-G\-T\-H}+18\mbox{]}}}\label{radiotftp_8c_aef489432b151f8bbcf1cfd6768d4ecbd}
+\hypertarget{radiotftp_8c_ae706fdaab1d55a0f9318245e0fc23903}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-dst@{udp\-\_\-dst}}
+\index{udp\-\_\-dst@{udp\-\_\-dst}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-dst}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf udp\-\_\-dst}\mbox{[}6\mbox{]}}}\label{radiotftp_8c_ae706fdaab1d55a0f9318245e0fc23903}
+\hypertarget{radiotftp_8c_a6f7563fd7e047c9d84fae0e849a4d22c}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-dst\-\_\-prt@{udp\-\_\-dst\-\_\-prt}}
+\index{udp\-\_\-dst\-\_\-prt@{udp\-\_\-dst\-\_\-prt}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-dst\-\_\-prt}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf udp\-\_\-dst\-\_\-prt}}}\label{radiotftp_8c_a6f7563fd7e047c9d84fae0e849a4d22c}
+\hypertarget{radiotftp_8c_ad5bd9ea4b691e5f10d763eb7282b7d32}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-src@{udp\-\_\-src}}
+\index{udp\-\_\-src@{udp\-\_\-src}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-src}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf udp\-\_\-src}\mbox{[}6\mbox{]}}}\label{radiotftp_8c_ad5bd9ea4b691e5f10d763eb7282b7d32}
+\hypertarget{radiotftp_8c_aeb47530036f11b906499d0d95bb34ec9}{\index{radiotftp.\-c@{radiotftp.\-c}!udp\-\_\-src\-\_\-prt@{udp\-\_\-src\-\_\-prt}}
+\index{udp\-\_\-src\-\_\-prt@{udp\-\_\-src\-\_\-prt}!radiotftp.c@{radiotftp.\-c}}
+\subsubsection[{udp\-\_\-src\-\_\-prt}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf udp\-\_\-src\-\_\-prt}}}\label{radiotftp_8c_aeb47530036f11b906499d0d95bb34ec9}

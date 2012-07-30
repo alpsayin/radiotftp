@@ -1,0 +1,85 @@
+\hypertarget{devtag-allinone_8c}{\section{devtag-\/allinone.c \-File \-Reference}
+\label{devtag-allinone_8c}\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}}
+}
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\*
+{\ttfamily \#include $<$dirent.\-h$>$}\*
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$libgen.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$ctype.\-h$>$}\*
+{\ttfamily \#include $<$fnmatch.\-h$>$}\*
+{\ttfamily \#include \char`\"{}devtag-\/allinone.\-h\char`\"{}}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{devtag-allinone_8c_a811fa6fdea0dbbbfa56110c88aeb4094}{\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E}
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{devtag-allinone_8c_a3af117dd76b7f99155371b5d48c72614}{devtag\-\_\-usb\-\_\-scan} (struct \hyperlink{structdev__head}{dev\-\_\-head} $\ast$result, const struct \hyperlink{structdevinfo__head}{devinfo\-\_\-head} $\ast$sel)
+\item 
+int \hyperlink{devtag-allinone_8c_a6e9cc1f68b141169581043a3db7f53a2}{devtag\-\_\-dev\-\_\-scan} (struct \hyperlink{structdev__head}{dev\-\_\-head} $\ast$result, const struct \hyperlink{structdevinfo__head}{devinfo\-\_\-head} $\ast$sel)
+\item 
+int \hyperlink{devtag-allinone_8c_add29945e3d6a148a07a6cfff5bb9c3e9}{devtag\-\_\-lookup2} (char $\ast$\hyperlink{radiotftp_8c_a23a861dc493bd6b8f4542432ff6b6b8c}{buf}, size\-\_\-t bufsize, char $\ast$constbuf, size\-\_\-t constsize, const char $\ast$\hyperlink{structdevname}{devname})
+\item 
+int \hyperlink{devtag-allinone_8c_aa2399c3971b5eedb3d82520e5103e65e}{devtag\-\_\-lookup} (char $\ast$\hyperlink{radiotftp_8c_a23a861dc493bd6b8f4542432ff6b6b8c}{buf}, size\-\_\-t bufsize, const char $\ast$\hyperlink{structdevname}{devname})
+\item 
+char $\ast$ \hyperlink{devtag-allinone_8c_af276262facc7dcc552f6f8fee1f74802}{devtag\-\_\-get} (const char $\ast$\hyperlink{structdevname}{devname})
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Define \-Documentation}
+\hypertarget{devtag-allinone_8c_a811fa6fdea0dbbbfa56110c88aeb4094}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E@{\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E}}
+\index{\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E@{\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{\-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf \-D\-E\-V\-T\-A\-G\-\_\-\-A\-L\-L\-I\-N\-O\-N\-E}}}\label{devtag-allinone_8c_a811fa6fdea0dbbbfa56110c88aeb4094}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{devtag-allinone_8c_a6e9cc1f68b141169581043a3db7f53a2}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!devtag\-\_\-dev\-\_\-scan@{devtag\-\_\-dev\-\_\-scan}}
+\index{devtag\-\_\-dev\-\_\-scan@{devtag\-\_\-dev\-\_\-scan}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{devtag\-\_\-dev\-\_\-scan}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf devtag\-\_\-dev\-\_\-scan} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf dev\-\_\-head} $\ast$}]{result, }
+\item[{const struct {\bf devinfo\-\_\-head} $\ast$}]{sel}
+\end{DoxyParamCaption}
+)}}\label{devtag-allinone_8c_a6e9cc1f68b141169581043a3db7f53a2}
+\hypertarget{devtag-allinone_8c_af276262facc7dcc552f6f8fee1f74802}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!devtag\-\_\-get@{devtag\-\_\-get}}
+\index{devtag\-\_\-get@{devtag\-\_\-get}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{devtag\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf devtag\-\_\-get} (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{devname}
+\end{DoxyParamCaption}
+)}}\label{devtag-allinone_8c_af276262facc7dcc552f6f8fee1f74802}
+\hypertarget{devtag-allinone_8c_aa2399c3971b5eedb3d82520e5103e65e}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!devtag\-\_\-lookup@{devtag\-\_\-lookup}}
+\index{devtag\-\_\-lookup@{devtag\-\_\-lookup}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{devtag\-\_\-lookup}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf devtag\-\_\-lookup} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf, }
+\item[{size\-\_\-t}]{bufsize, }
+\item[{const char $\ast$}]{devname}
+\end{DoxyParamCaption}
+)}}\label{devtag-allinone_8c_aa2399c3971b5eedb3d82520e5103e65e}
+\hypertarget{devtag-allinone_8c_add29945e3d6a148a07a6cfff5bb9c3e9}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!devtag\-\_\-lookup2@{devtag\-\_\-lookup2}}
+\index{devtag\-\_\-lookup2@{devtag\-\_\-lookup2}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{devtag\-\_\-lookup2}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf devtag\-\_\-lookup2} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buf, }
+\item[{size\-\_\-t}]{bufsize, }
+\item[{char $\ast$}]{constbuf, }
+\item[{size\-\_\-t}]{constsize, }
+\item[{const char $\ast$}]{devname}
+\end{DoxyParamCaption}
+)}}\label{devtag-allinone_8c_add29945e3d6a148a07a6cfff5bb9c3e9}
+\hypertarget{devtag-allinone_8c_a3af117dd76b7f99155371b5d48c72614}{\index{devtag-\/allinone.\-c@{devtag-\/allinone.\-c}!devtag\-\_\-usb\-\_\-scan@{devtag\-\_\-usb\-\_\-scan}}
+\index{devtag\-\_\-usb\-\_\-scan@{devtag\-\_\-usb\-\_\-scan}!devtag-allinone.c@{devtag-\/allinone.\-c}}
+\subsubsection[{devtag\-\_\-usb\-\_\-scan}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf devtag\-\_\-usb\-\_\-scan} (
+\begin{DoxyParamCaption}
+\item[{struct {\bf dev\-\_\-head} $\ast$}]{result, }
+\item[{const struct {\bf devinfo\-\_\-head} $\ast$}]{sel}
+\end{DoxyParamCaption}
+)}}\label{devtag-allinone_8c_a3af117dd76b7f99155371b5d48c72614}

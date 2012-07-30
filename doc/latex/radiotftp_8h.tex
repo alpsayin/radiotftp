@@ -1,0 +1,149 @@
+\hypertarget{radiotftp_8h}{\section{\-Header \-Files/radiotftp.h \-File \-Reference}
+\label{radiotftp_8h}\index{\-Header Files/radiotftp.\-h@{\-Header Files/radiotftp.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\*
+{\ttfamily \#include $<$unistd.\-h$>$}\*
+{\ttfamily \#include $<$termio.\-h$>$}\*
+{\ttfamily \#include $<$time.\-h$>$}\*
+{\ttfamily \#include $<$sys/fcntl.\-h$>$}\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\*
+{\ttfamily \#include $<$string.\-h$>$}\*
+{\ttfamily \#include $<$signal.\-h$>$}\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\*
+{\ttfamily \#include $<$stdint.\-h$>$}\*
+{\ttfamily \#include $<$sys/time.\-h$>$}\*
+{\ttfamily \#include \char`\"{}lock.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}devtag-\/allinone.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}manchester.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}ethernet.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}udp\-\_\-ip.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}tftp.\-h\char`\"{}}\*
+{\ttfamily \#include \char`\"{}timers.\-h\char`\"{}}\*
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{radiotftp_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}{usage} (void)
+\item 
+void \hyperlink{radiotftp_8h_ac7628f426e4cfb459ddecd1722917b0c}{print\-\_\-time} (char $\ast$prefix)
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8h_a40a92ae94efe8c6c537774eed4d58ebe}{set\-R\-T\-S} (uint8\-\_\-t level)
+\item 
+\hyperlink{radiotftp_8h_ae1f86b12524fca90118253b7536c96db}{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O} (idle\-\_\-timer\-\_\-handler)
+\item 
+void \hyperlink{radiotftp_8h_adce6d41f20444faf3fdf3e5018b07248}{safe\-\_\-exit} (int ret\-Val)
+\item 
+void \hyperlink{radiotftp_8h_a5527c1b76a2d10a1d432e81e8e6d7275}{sig\-I\-N\-T\-\_\-handler} (int sig)
+\item 
+void \hyperlink{radiotftp_8h_afc5eebfc4debddb456524d605bc2b960}{sig\-I\-O\-\_\-handler} (int status)
+\item 
+void \hyperlink{radiotftp_8h_a660ec4897a91575b19b2b23c3427606c}{sig\-V\-T\-A\-L\-R\-M\-\_\-handler} (int sig)
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8h_adc21a22a257d7d47d87e987b9fc2aa90}{queue\-Serial\-Data} (uint8\-\_\-t $\ast$src, uint16\-\_\-t src\-\_\-port, uint8\-\_\-t $\ast$dst, uint16\-\_\-t dst\-\_\-port, uint8\-\_\-t $\ast$dataptr, uint16\-\_\-t datalen)
+\item 
+uint16\-\_\-t \hyperlink{radiotftp_8h_a0fda20768d86bd75d8578c6379de08d2}{transmit\-Serial\-Data} (void)
+\item 
+uint8\-\_\-t \hyperlink{radiotftp_8h_a351fb727125bc24c7324ebbe8b8bc94c}{udp\-\_\-packet\-\_\-demultiplexer} (uint8\-\_\-t $\ast$src, uint16\-\_\-t src\-\_\-port, uint8\-\_\-t $\ast$dst, uint16\-\_\-t dst\-\_\-port, uint8\-\_\-t $\ast$payload, uint16\-\_\-t len)
+\item 
+int \hyperlink{radiotftp_8h_adacbe0175a79dff748855d8c9839f82b}{main} (int ac, char $\ast$av\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{radiotftp_8h_adacbe0175a79dff748855d8c9839f82b}{\index{radiotftp.\-h@{radiotftp.\-h}!main@{main}}
+\index{main@{main}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+\item[{int}]{ac, }
+\item[{char $\ast$}]{av\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_adacbe0175a79dff748855d8c9839f82b}
+\hypertarget{radiotftp_8h_ac7628f426e4cfb459ddecd1722917b0c}{\index{radiotftp.\-h@{radiotftp.\-h}!print\-\_\-time@{print\-\_\-time}}
+\index{print\-\_\-time@{print\-\_\-time}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{print\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf print\-\_\-time} (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{prefix}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_ac7628f426e4cfb459ddecd1722917b0c}
+\hypertarget{radiotftp_8h_adc21a22a257d7d47d87e987b9fc2aa90}{\index{radiotftp.\-h@{radiotftp.\-h}!queue\-Serial\-Data@{queue\-Serial\-Data}}
+\index{queue\-Serial\-Data@{queue\-Serial\-Data}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{queue\-Serial\-Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf queue\-Serial\-Data} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src, }
+\item[{uint16\-\_\-t}]{src\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dst, }
+\item[{uint16\-\_\-t}]{dst\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dataptr, }
+\item[{uint16\-\_\-t}]{datalen}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_adc21a22a257d7d47d87e987b9fc2aa90}
+\hypertarget{radiotftp_8h_adce6d41f20444faf3fdf3e5018b07248}{\index{radiotftp.\-h@{radiotftp.\-h}!safe\-\_\-exit@{safe\-\_\-exit}}
+\index{safe\-\_\-exit@{safe\-\_\-exit}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{safe\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf safe\-\_\-exit} (
+\begin{DoxyParamCaption}
+\item[{int}]{ret\-Val}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_adce6d41f20444faf3fdf3e5018b07248}
+\hypertarget{radiotftp_8h_a40a92ae94efe8c6c537774eed4d58ebe}{\index{radiotftp.\-h@{radiotftp.\-h}!set\-R\-T\-S@{set\-R\-T\-S}}
+\index{set\-R\-T\-S@{set\-R\-T\-S}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{set\-R\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf set\-R\-T\-S} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{level}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_a40a92ae94efe8c6c537774eed4d58ebe}
+\hypertarget{radiotftp_8h_a5527c1b76a2d10a1d432e81e8e6d7275}{\index{radiotftp.\-h@{radiotftp.\-h}!sig\-I\-N\-T\-\_\-handler@{sig\-I\-N\-T\-\_\-handler}}
+\index{sig\-I\-N\-T\-\_\-handler@{sig\-I\-N\-T\-\_\-handler}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{sig\-I\-N\-T\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-I\-N\-T\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_a5527c1b76a2d10a1d432e81e8e6d7275}
+\hypertarget{radiotftp_8h_afc5eebfc4debddb456524d605bc2b960}{\index{radiotftp.\-h@{radiotftp.\-h}!sig\-I\-O\-\_\-handler@{sig\-I\-O\-\_\-handler}}
+\index{sig\-I\-O\-\_\-handler@{sig\-I\-O\-\_\-handler}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{sig\-I\-O\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-I\-O\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{status}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_afc5eebfc4debddb456524d605bc2b960}
+\hypertarget{radiotftp_8h_a660ec4897a91575b19b2b23c3427606c}{\index{radiotftp.\-h@{radiotftp.\-h}!sig\-V\-T\-A\-L\-R\-M\-\_\-handler@{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}}
+\index{sig\-V\-T\-A\-L\-R\-M\-\_\-handler@{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{sig\-V\-T\-A\-L\-R\-M\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf sig\-V\-T\-A\-L\-R\-M\-\_\-handler} (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_a660ec4897a91575b19b2b23c3427606c}
+\hypertarget{radiotftp_8h_ae1f86b12524fca90118253b7536c96db}{\index{radiotftp.\-h@{radiotftp.\-h}!\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}}
+\index{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O@{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{\-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-T\-I\-M\-E\-R\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-P\-R\-O\-T\-O} (
+\begin{DoxyParamCaption}
+\item[{idle\-\_\-timer\-\_\-handler}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_ae1f86b12524fca90118253b7536c96db}
+\hypertarget{radiotftp_8h_a0fda20768d86bd75d8578c6379de08d2}{\index{radiotftp.\-h@{radiotftp.\-h}!transmit\-Serial\-Data@{transmit\-Serial\-Data}}
+\index{transmit\-Serial\-Data@{transmit\-Serial\-Data}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{transmit\-Serial\-Data}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t {\bf transmit\-Serial\-Data} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_a0fda20768d86bd75d8578c6379de08d2}
+\hypertarget{radiotftp_8h_a351fb727125bc24c7324ebbe8b8bc94c}{\index{radiotftp.\-h@{radiotftp.\-h}!udp\-\_\-packet\-\_\-demultiplexer@{udp\-\_\-packet\-\_\-demultiplexer}}
+\index{udp\-\_\-packet\-\_\-demultiplexer@{udp\-\_\-packet\-\_\-demultiplexer}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{udp\-\_\-packet\-\_\-demultiplexer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t {\bf udp\-\_\-packet\-\_\-demultiplexer} (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{src, }
+\item[{uint16\-\_\-t}]{src\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{dst, }
+\item[{uint16\-\_\-t}]{dst\-\_\-port, }
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_a351fb727125bc24c7324ebbe8b8bc94c}
+\hypertarget{radiotftp_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}{\index{radiotftp.\-h@{radiotftp.\-h}!usage@{usage}}
+\index{usage@{usage}!radiotftp.h@{radiotftp.\-h}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf usage} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{radiotftp_8h_ae8605e2b78cd4a81b6c6b5c30cb7366a}

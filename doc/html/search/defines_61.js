@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['ax25_5fcontrol_5flength',['AX25_CONTROL_LENGTH',['../ax25_8h.html#a6c73656ecf0cc2018819806022173874',1,'ax25.h']]],
+  ['ax25_5fcontrol_5foffset',['AX25_CONTROL_OFFSET',['../ax25_8h.html#a27cb357ca28fb763f8c942c3a802cbf7',1,'ax25.h']]],
+  ['ax25_5fcontrol_5fui_5ffinal',['AX25_CONTROL_UI_FINAL',['../ax25_8h.html#ae058494a432afdb6890784a658f16ff0',1,'ax25.h']]],
+  ['ax25_5fcontrol_5fui_5fpoll',['AX25_CONTROL_UI_POLL',['../ax25_8h.html#adc8c19a13018dd9ee021217baf667a6a',1,'ax25.h']]],
+  ['ax25_5fdestination_5flength',['AX25_DESTINATION_LENGTH',['../ax25_8h.html#add7d6e019aff2ce43de9fb662cfe7408',1,'ax25.h']]],
+  ['ax25_5fdestination_5foffset',['AX25_DESTINATION_OFFSET',['../ax25_8h.html#a7bd9529184dc7d43bcb60d7814fe012a',1,'ax25.h']]],
+  ['ax25_5fenabled',['AX25_ENABLED',['../radiotftp_8c.html#ac765b6a61aca2ffa85abc2adca9e6473',1,'radiotftp.c']]],
+  ['ax25_5ffcs_5flength',['AX25_FCS_LENGTH',['../ax25_8h.html#a7b09b6529147e4b73364d5d5242d0ec6',1,'ax25.h']]],
+  ['ax25_5ffcs_5foffset',['AX25_FCS_OFFSET',['../ax25_8h.html#a9c86436e3209ef4ca8776336e85226cf',1,'ax25.h']]],
+  ['ax25_5fmax_5fpayload_5flength',['AX25_MAX_PAYLOAD_LENGTH',['../ax25_8h.html#a69809bbb570edbfa34b78e33c26a8fce',1,'ax25.h']]],
+  ['ax25_5fpayload_5foffset',['AX25_PAYLOAD_OFFSET',['../ax25_8h.html#ae4413dd41de7d4ee9119cd68bd711c0e',1,'ax25.h']]],
+  ['ax25_5fpid_5fcompressed_5ftcp',['AX25_PID_COMPRESSED_TCP',['../ax25_8h.html#af4c92ea0ba3183134d27c7a34b34fe70',1,'ax25.h']]],
+  ['ax25_5fpid_5flength',['AX25_PID_LENGTH',['../ax25_8h.html#a08a2cae06c728413636fa399837963c0',1,'ax25.h']]],
+  ['ax25_5fpid_5fno_5fprotocol',['AX25_PID_NO_PROTOCOL',['../ax25_8h.html#a517495cf4bc3a44967b20fd7188359ee',1,'ax25.h']]],
+  ['ax25_5fpid_5foffset',['AX25_PID_OFFSET',['../ax25_8h.html#aa3b2a9ba9c3ddab2bad715b6f8535089',1,'ax25.h']]],
+  ['ax25_5fpid_5funcompressed_5ftcp',['AX25_PID_UNCOMPRESSED_TCP',['../ax25_8h.html#aacceace90b912aa722450c5bd9ba1469',1,'ax25.h']]],
+  ['ax25_5fsource_5flength',['AX25_SOURCE_LENGTH',['../ax25_8h.html#a7b1fe5c052e205d520abb0ddd32af49e',1,'ax25.h']]],
+  ['ax25_5fsource_5foffset',['AX25_SOURCE_OFFSET',['../ax25_8h.html#a4bb8055591e8cb1485d689295c3c2661',1,'ax25.h']]]
+];
