@@ -47,7 +47,7 @@ C_DEPS += \
 %.o: ../%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C Compiler'
-	gcc -DAX25_ENABLED=1 -I"/home/alpsayin/wsn-longrange-radio-uplink/project_radiotftp/Headers" -O3 -g3 -c -fmessage-length=0 -static -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	gcc -DAX25_ENABLED=1 -I"../Headers" -O3 -g3 -c -fmessage-length=0 -static -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
