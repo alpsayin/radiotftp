@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "udp_ip.h"
+#include "util.h"
 
 static dataQueuerfptr_t mainDataQueuer;
 static uint8_t local_ip_address[4]={127, 0, 0, 1};
@@ -32,12 +33,12 @@ static uint16_t udp_calculate_checksum(uint8_t* src_addr, uint8_t* dest_addr, ui
     }
 
     // add the UDP pseudo header which contains the IP source and destination addresses
-    for (i=0;i<IPV4_SOURCE_LENGTH;i=i+2)
+    for (i=0; i<IPV4_SOURCE_LENGTH; i+=2)
     {
         word16 =((src_addr[i]<<8)&0xFF00)+(src_addr[i+1]&0xFF);
         sum=sum+word16;
     }
-    for (i=0;i<IPV4_DESTINATION_LENGTH;i=i+2)
+    for (i=0; i<IPV4_DESTINATION_LENGTH; i+=2)
     {
         word16 =((dest_addr[i]<<8)&0xFF00)+(dest_addr[i+1]&0xFF);
         sum=sum+word16;
@@ -87,7 +88,7 @@ dataQueuerfptr_t udp_get_data_queuer_fptr(void)
 
 void udp_initialize_ip_network(uint8_t* myIpAddress, dataQueuerfptr_t dataQueuer)
 {
-    uint32_t i;
+    uint8_t i;
     for(i=0; i<IPV4_SOURCE_LENGTH; i++)
         local_ip_address[i] = myIpAddress[i];
 
@@ -114,6 +115,7 @@ uint8_t* udp_get_broadcast_ip(uint8_t* ip_out)
         for(i=0; i<IPV4_SOURCE_LENGTH; i++)
             ip_out[i] = udp_broadcast_address[i];
     }
+
     return udp_broadcast_address;
 }
 
@@ -129,7 +131,7 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
         return 0;
 
     //IPv4 Headers
-
+    CHECKPOINT(1);
     //version and header length
     //version 4
     //length 5x32
@@ -196,6 +198,7 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
 
     //udp length = data+udp headers
     //we've already added 8 to payload_length above, we don't do it again
+    payload_length+=8;
     packet_out[UDP_LENGTH_OFFSET]=((payload_length>>8) & 0xFF);
     packet_out[UDP_LENGTH_OFFSET+1]=(payload_length & 0xFF);
     len+=UDP_LENGTH_LENGTH;
@@ -208,9 +211,9 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
     len+=UDP_CHECKSUM_LENGTH;
 
     memcpy(packet_out+UDP_PAYLOAD_OFFSET, payload_in, payload_length-8);
-    
     len+=payload_length-8;
     
+
     return len;
 }
 
@@ -269,14 +272,14 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     	*ecn_out = packet_in[IPV4_DSCPnECN_OFFSET] & 0x03;
 
     udp_len_from_ip = (packet_in[IPV4_TOTAL_LENGTH_OFFSET] & 0x00FF);
-    udp_len_from_ip = udp_len_from_ip<<8;
+    udp_len_from_ip <<= 8;
     udp_len_from_ip |= (packet_in[IPV4_TOTAL_LENGTH_OFFSET+1] & 0x00FF);
-    udp_len_from_ip -= (20+8); //ip=20, udp=8
+    udp_len_from_ip -= (20); //ip header length=20
 
     if(fragmentidentification_out!=NULL)
     {
     	*fragmentidentification_out = packet_in[IPV4_IDENTIFICATION_OFFSET];
-    	*fragmentidentification_out = *fragmentidentification_out << 8;
+    	*fragmentidentification_out <<= 8;
     	*fragmentidentification_out |= packet_in[IPV4_IDENTIFICATION_OFFSET+1];
     }
 
@@ -286,7 +289,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     if(fragmentoffset_out!=NULL)
     {
     	*fragmentoffset_out = packet_in[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET] & 0x1F;
-    	*fragmentoffset_out = *fragmentoffset_out << 8;
+    	*fragmentoffset_out <<= 8;
     	*fragmentoffset_out |= packet_in[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET+1];
     }
 
@@ -299,7 +302,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     if(headerchecksum_out!=NULL)
     {
     	*headerchecksum_out = packet_in[IPV4_HEADER_CHECKSUM_OFFSET];
-    	*headerchecksum_out = *headerchecksum_out << 8;
+    	*headerchecksum_out <<= 8;
     	*headerchecksum_out |= packet_in[IPV4_HEADER_CHECKSUM_OFFSET+1];
     }
 
@@ -315,7 +318,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     if(src_port_out!=NULL)
     {
         *src_port_out=packet_in[UDP_SOURCE_PORT_OFFSET] & 0xFF;
-        *src_port_out<<=8;
+        *src_port_out <<= 8;
         *src_port_out|=packet_in[UDP_SOURCE_PORT_OFFSET+1] & 0xFF;
     }
 
@@ -323,13 +326,13 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     if(dst_port_out!=NULL)
     {
         *dst_port_out=packet_in[UDP_DESTINATION_PORT_OFFSET] & 0xFF;
-        *dst_port_out<<=8;
+        *dst_port_out <<= 8;
         *dst_port_out|=packet_in[UDP_DESTINATION_PORT_OFFSET+1] & 0xFF;
     }
 
     //copy and check udp length
     udp_len_from_udp = packet_in[UDP_LENGTH_OFFSET];
-    udp_len_from_udp = udp_len_from_udp<<8;
+    udp_len_from_udp<<=8;
     udp_len_from_udp |= packet_in[UDP_LENGTH_OFFSET+1] & 0xFF;
 
 
@@ -355,6 +358,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     //finally copy the payload itself
     if(payload_out != NULL)
         memcpy(payload_out, packet_in+UDP_PAYLOAD_OFFSET, len);
+
 
     return len;
 }
