@@ -361,10 +361,10 @@ uint8_t udp_packet_demultiplexer(uint8_t* src, uint16_t src_port, uint8_t* dst, 
 	uint8_t different=0;
 
 	//check for address match
-	different=memcmp(udp_get_localhost_ip(NULL), dst, IPV6_DESTINATION_LENGTH);
+	different=memcmp(udp_get_localhost_ip(NULL), dst, IPV4_DESTINATION_LENGTH);
 	if(different)
 	{
-		different=memcmp(udp_get_broadcast_ip(NULL), dst, IPV6_DESTINATION_LENGTH);
+		different=memcmp(udp_get_broadcast_ip(NULL), dst, IPV4_DESTINATION_LENGTH);
 	}
 
 	if(!different)
