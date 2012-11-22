@@ -94,7 +94,7 @@ extern "C" {
     									uint16_t* fragmentoffset_out,
     									uint8_t* ttl_out,
     									uint8_t* protocol_out,
-    									uint8_t* headerchecksum_out,
+    									uint16_t* headerchecksum_out
     									);
     
 

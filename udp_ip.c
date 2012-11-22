@@ -57,6 +57,29 @@ static uint16_t udp_calculate_checksum(uint8_t* src_addr, uint8_t* dest_addr, ui
     return ((uint16_t) (sum&0xFFFF));
 }
 
+static uint16_t ip_header_calculate_checksum(uint8_t* header, uint8_t length)
+{
+	uint16_t word16;
+	uint32_t sum;
+	uint16_t i;
+
+	// make 16 bit words out of every two adjacent 8 bit words in the packet
+	// and add them up
+	for (i=0;i<length;i=i+2){
+		word16 =((header[i]<<8)&0xFF00)+(header[i+1]&0xFF);
+		sum = sum + (uint32_t) word16;
+	}
+
+	// take only 16 bits out of the 32 bit sum and add up the carries
+	while (sum>>16)
+	  sum = (sum & 0xFFFF)+(sum >> 16);
+
+	// one's complement the result
+	sum = ~sum;
+
+return ((uint16_t) sum);
+}
+
 dataQueuerfptr_t udp_get_data_queuer_fptr(void)
 {
     return mainDataQueuer;
@@ -98,7 +121,7 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
 {
     uint16_t len=0, udp_checksum=0, total_length=0, tmp_len;
     uint32_t header_checksum=0;
-    uint16_t *checksumPtr;
+    uint16_t* checksumPtr;
     uint8_t i;
 
     //check for input errors
@@ -144,27 +167,7 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
     len+=IPV4_PROTOCOL_LENGTH;
 
     //header checksum
-    {
-		tmp_len = len;
-		checksumPtr = packet_out;
-		while(tmp_len > 1)
-		{
-			header_checksum += *((uint16_t*) checksumPtr)++;
-			if(header_checksum & 0x80000000)   /* if high order bit set, fold */
-				header_checksum = (header_checksum & 0xFFFF) + (header_checksum >> 16);
-			tmp_len -= 2;
-		}
-
-		if(tmp_len)       /* take care of left over byte */
-		{
-			header_checksum += (uint16_t) *(uint8_t *)checksumPtr;
-		}
-
-		while(header_checksum>>16)
-		{
-			header_checksum = (header_checksum & 0xFFFF) + (header_checksum >> 16);
-		}
-    }
+    header_checksum = ip_header_calculate_checksum(packet_out, len);
     packet_out[IPV4_HEADER_CHECKSUM_OFFSET] = (header_checksum >> 8) & 0xFF;
     packet_out[IPV4_HEADER_CHECKSUM_OFFSET+1] = header_checksum & 0xFF;
     len+=IPV4_HEADER_CHECKSUM_LENGTH;
@@ -243,7 +246,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
 									uint16_t* fragmentoffset_out,
 									uint8_t* ttl_out,
 									uint8_t* protocol_out,
-									uint8_t* headerchecksum_out,
+									uint16_t* headerchecksum_out
 									)
 {
     uint16_t len=0;
@@ -296,7 +299,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     if(headerchecksum_out!=NULL)
     {
     	*headerchecksum_out = packet_in[IPV4_HEADER_CHECKSUM_OFFSET];
-    	&headerchecksum_out = *headerchecksum_out << 8;
+    	*headerchecksum_out = *headerchecksum_out << 8;
     	*headerchecksum_out |= packet_in[IPV4_HEADER_CHECKSUM_OFFSET+1];
     }
 
@@ -362,7 +365,22 @@ uint16_t udp_open_packet(uint8_t* src_out, uint16_t* src_port_out,
                                     uint8_t* packet_in
                             )
 {
-    return udp_open_packet_extended(src_out, src_port_out, dst_out, dst_port_out, payload_out, packet_in, NULL, NULL, NULL, NULL, NULL);
+	return udp_open_packet_extended(src_out, src_port_out,
+								dst_out, dst_port_out,
+								payload_out,
+								packet_in,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL,
+								NULL
+							);
 }
 
 
