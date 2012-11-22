@@ -640,7 +640,7 @@ int main(int ac, char *av[])
 #endif
 		readnline(sptr, linebuf, 32);
 		text_to_ip(linebuf, 32);
-		printf("IPv6 Address: ");
+		printf("IPv4 Address: ");
 		print_addr_dec(linebuf);
 		udp_initialize_ip_network(linebuf, &queueSerialData);
 	}
@@ -652,7 +652,7 @@ int main(int ac, char *av[])
 		print_callsign(ax25_get_local_callsign(NULL));
 #endif
 		udp_initialize_ip_network(my_ip_address, &queueSerialData);
-		printf("IPv6 Address = ");
+		printf("IPv4 Address = ");
 		print_addr_dec(udp_get_localhost_ip(NULL));
 	}
 
