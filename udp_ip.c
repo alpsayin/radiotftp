@@ -254,15 +254,51 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
 
     //copy version and priority
     if(version_out!=NULL)
-        *version_out=packet_in[IPV4_VERSIONnIHL_OFFSET] & 0xF0;
+        *version_out = packet_in[IPV4_VERSIONnIHL_OFFSET] & 0xF0;
 
     if(headerlength_out!=NULL)
-    	*headerlength_out=packet_in[IPV4_VERSIONnIHL_OFFSET] & 0x0F;
+    	*headerlength_out = packet_in[IPV4_VERSIONnIHL_OFFSET] & 0x0F;
+
+    if(dscp_out!=NULL)
+    	*dscp_out = ( packet_in[IPV4_DSCPnECN_OFFSET] >> 2 ) & 0x3F;
+
+    if(ecn_out!=NULL)
+    	*ecn_out = packet_in[IPV4_DSCPnECN_OFFSET] & 0x03;
 
     udp_len_from_ip = (packet_in[IPV4_TOTAL_LENGTH_OFFSET] & 0x00FF);
     udp_len_from_ip = udp_len_from_ip<<8;
     udp_len_from_ip |= (packet_in[IPV4_TOTAL_LENGTH_OFFSET+1] & 0x00FF);
     udp_len_from_ip -= (20+8); //ip=20, udp=8
+
+    if(fragmentidentification_out!=NULL)
+    {
+    	*fragmentidentification_out = packet_in[IPV4_IDENTIFICATION_OFFSET];
+    	*fragmentidentification_out = *fragmentidentification_out << 8;
+    	*fragmentidentification_out |= packet_in[IPV4_IDENTIFICATION_OFFSET+1];
+    }
+
+    if(flags_out!=NULL)
+    	*flags_out= ( packet_in[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET] >> 5 ) * 0x07;
+
+    if(fragmentoffset_out!=NULL)
+    {
+    	*fragmentoffset_out = packet_in[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET] & 0x1F;
+    	*fragmentoffset_out = *fragmentoffset_out << 8;
+    	*fragmentoffset_out |= packet_in[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET+1];
+    }
+
+    if(ttl_out!=NULL)
+    	*ttl_out = packet_in[IPV4_TIME_TO_LIVE_OFFSET];
+
+    if(protocol_out!=NULL)
+    	*protocol_out = packet_in[IPV4_PROTOCOL_OFFSET];
+
+    if(headerchecksum_out!=NULL)
+    {
+    	*headerchecksum_out = packet_in[IPV4_HEADER_CHECKSUM_OFFSET];
+    	&headerchecksum_out = *headerchecksum_out << 8;
+    	*headerchecksum_out |= packet_in[IPV4_HEADER_CHECKSUM_OFFSET+1];
+    }
 
     //copy source address
     if(src_out!=NULL)
@@ -295,9 +331,14 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
 
 
     if(udp_len_from_ip != udp_len_from_udp)
+    {
+    	printf("Length mismatch while opening udp/ip packet\n");
         return 0;
+    }
     else
-        len = udp_len_from_udp;
+    {
+    	len = udp_len_from_udp;
+    }
 
     //copy checksum and check
     udp_checksum = (packet_in[UDP_CHECKSUM_OFFSET] & 0xFF);
