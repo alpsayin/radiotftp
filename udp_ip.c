@@ -254,32 +254,23 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
 
     //copy version and priority
     if(version_out!=NULL)
-        *version_out=packet_in[IPV6_VERSION_PRIORITY_OFFSET] & 0xF0;
+        *version_out=packet_in[IPV4_VERSIONnIHL_OFFSET] & 0xF0;
 
-    if(priority_out!=NULL)
-        *priority_out=packet_in[IPV6_VERSION_PRIORITY_OFFSET] & 0x0F;
+    if(headerlength_out!=NULL)
+    	*headerlength_out=packet_in[IPV4_VERSIONnIHL_OFFSET] & 0x0F;
 
-    //copy flow label
-    if(flow_label_out!=NULL)
-    	memcpy(flow_label_out, packet_in+IPV6_FLOW_LABEL_OFFSET, IPV6_FLOW_LABEL_LENGTH);
-
-    udp_len_from_ip = (packet_in[IPV6_PAYLOAD_LENGTH_OFFSET] & 0x00FF);
+    udp_len_from_ip = (packet_in[IPV4_TOTAL_LENGTH_OFFSET] & 0x00FF);
     udp_len_from_ip = udp_len_from_ip<<8;
-    udp_len_from_ip |= (packet_in[IPV6_PAYLOAD_LENGTH_OFFSET+1] & 0x00FF);
-
-    if(next_header_out!=NULL)
-    	memcpy(next_header_out, packet_in+IPV6_NEXT_HEADER_OFFSET, IPV6_NEXT_HEADER_LENGTH);
-
-    if(hop_limit_out!=NULL)
-    	memcpy(hop_limit_out, packet_in+IPV6_HOP_LIMIT_OFFSET, IPV6_HOP_LIMIT_LENGTH);
+    udp_len_from_ip |= (packet_in[IPV4_TOTAL_LENGTH_OFFSET+1] & 0x00FF);
+    udp_len_from_ip -= (20+8); //ip=20, udp=8
 
     //copy source address
     if(src_out!=NULL)
-    	memcpy(src_out, packet_in+IPV6_SOURCE_OFFSET, IPV6_SOURCE_LENGTH);
+    	memcpy(src_out, packet_in+IPV4_SOURCE_OFFSET, IPV4_SOURCE_LENGTH);
 
     //copy destination address
     if(dst_out!=NULL)
-    	memcpy(dst_out, packet_in+IPV6_DESTINATION_OFFSET, IPV6_DESTINATION_LENGTH);
+    	memcpy(dst_out, packet_in+IPV4_DESTINATION_OFFSET, IPV4_DESTINATION_LENGTH);
 
     //copy source port
     if(src_port_out!=NULL)
@@ -313,7 +304,7 @@ uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
     udp_checksum = udp_checksum<<8;
     udp_checksum |= (packet_in[UDP_CHECKSUM_OFFSET+1] & 0xFF);
 
-    calculated_checksum=udp_calculate_checksum(packet_in+IPV6_SOURCE_OFFSET, packet_in+IPV6_DESTINATION_OFFSET, packet_in+UDP_PAYLOAD_OFFSET, len);
+    calculated_checksum=udp_calculate_checksum(packet_in+IPV4_SOURCE_OFFSET, packet_in+IPV4_DESTINATION_OFFSET, packet_in+UDP_PAYLOAD_OFFSET, len);
     
     if(udp_checksum != calculated_checksum)
         return 0;
