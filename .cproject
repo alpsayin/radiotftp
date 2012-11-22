@@ -30,9 +30,9 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.689660179" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.1126164515" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.700856346" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Headers}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;../Headers&quot;"/>
 								</option>
-								<option id="gnu.c.compiler.option.misc.other.371265000" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0 -static" valueType="string"/>
+								<option id="gnu.c.compiler.option.misc.other.371265000" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -fmessage-length=0" valueType="string"/>
 								<option id="gnu.c.compiler.option.debugging.gprof.412407725" name="Generate gprof information (-pg)" superClass="gnu.c.compiler.option.debugging.gprof" value="false" valueType="boolean"/>
 								<option id="gnu.c.compiler.option.preprocessor.def.symbols.1423787911" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="AX25_ENABLED=1"/>
@@ -118,8 +118,13 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="tty_talk_eclipse.cdt.managedbuild.target.gnu.exe.1432818705" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
-	<storageModule moduleId="refreshScope" versionNumber="1">
-		<resource resourceType="PROJECT" workspacePath="/radiotftp"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="ax25_build">
+			<resource resourceType="PROJECT" workspacePath="/radiotftp"/>
+		</configuration>
+		<configuration configurationName="no-link_build">
+			<resource resourceType="PROJECT" workspacePath="/radiotftp"/>
+		</configuration>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
@@ -131,14 +136,15 @@
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.303241434;cdt.managedbuild.config.gnu.exe.debug.303241434.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.824074080;cdt.managedbuild.tool.gnu.c.compiler.input.357473112">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2081556200.1422831213;cdt.managedbuild.config.gnu.exe.release.2081556200.1422831213.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1812128367;cdt.managedbuild.tool.gnu.c.compiler.input.1901795876">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2081556200.1514483481;cdt.managedbuild.config.gnu.exe.release.2081556200.1514483481.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.762680031;cdt.managedbuild.tool.gnu.c.compiler.input.76073935">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2081556200.1514483481;cdt.managedbuild.config.gnu.exe.release.2081556200.1514483481.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.762680031;cdt.managedbuild.tool.gnu.c.compiler.input.76073935">
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2081556200.1422831213;cdt.managedbuild.config.gnu.exe.release.2081556200.1422831213.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.1812128367;cdt.managedbuild.tool.gnu.c.compiler.input.1901795876">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2081556200;cdt.managedbuild.config.gnu.exe.release.2081556200.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.2072043516;cdt.managedbuild.tool.gnu.c.compiler.input.2044501921">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 </cproject>
