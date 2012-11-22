@@ -34,16 +34,15 @@ void usage(void)
     printf(" -b run in background (EXPERIMENTAL, do NOT use this!)\n");
     printf(" -f defines a different local filename for put and get\n");
     printf("    and defines a different remote filename for append and appendline\n");
-    printf(" -dstXXX.XXX.XXX.XXX.XXX.XXX sends the request to XXX.XXX.XXX.XXX.XXX.XXX\n"
+    printf(" -dstXXX.XXX.XXX.XXX sends the request to XXX.XXX.XXX.XXX\n"
     		"   default is broadcast");
     printf(" Local address settings are read from a 'radiotftp.conf' file\n");
-    printf(" Valid baudrates 300, 600, 1200, 4800 (Default), 9600, 19200, 38400, 57600 bps\n");
     printf(" Examples: \n"
-    		"    radiotftp_uhf384 /dev/ttyUSB0 \n"
-    		"    radiotftp_uhf384 -flocalphoto.jpg /dev/ttyUSB0 get remotephoto.jpg\n"
-    		"    radiotftp_uhf384 -flocalmusic.mp3 /dev/ttyUSB0 put remotemusic.mp3\n"
-    		"    radiotftp_uhf384 -dst10.0.0.0.0.1 /dev/ttyUSB0 appendfile logfile.txt\n"
-    		"    radiotftp_uhf384 -fremote_sensors.dat /dev/ttyUSB0 appendline '{TELEMETRY BATTERY=3.3V}'\n"
+    		"    radiotftp_uhf /dev/ttyUSB0 \n"
+    		"    radiotftp_uhf -flocalphoto.jpg /dev/ttyUSB0 get remotephoto.jpg\n"
+    		"    radiotftp_uhf -flocalmusic.mp3 /dev/ttyUSB0 put remotemusic.mp3\n"
+    		"    radiotftp_vhf -dst10.0.0.1 /dev/ttyUSB0 appendfile logfile.txt\n"
+    		"    radiotftp_vhf -fremote_sensors.dat /dev/ttyUSB0 appendline '{TELEMETRY BATTERY=3.3V}'\n"
     		"\n");
 
     safe_exit(-1);
@@ -105,9 +104,9 @@ void print_callsign(uint8_t* callsign)
 }
 void print_addr_hex(uint8_t* addr)
 {
-	printf("%x:%x:%x:%x:%x:%x\n", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+	printf("%x:%x:%x:%x\n", addr[0], addr[1], addr[2], addr[3] );
 }
 void print_addr_dec(uint8_t* addr)
 {
-	printf("%d.%d.%d.%d.%d.%d\n", addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+	printf("%d.%d.%d.%d\n", addr[0], addr[1], addr[2], addr[3] );
 }
