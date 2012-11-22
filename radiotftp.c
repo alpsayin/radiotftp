@@ -418,7 +418,7 @@ int main(int ac, char *av[])
 	if(ac == 1)
 		usage();
 
-	if(!strcmp("radiotftp_uhf", av[0]))
+	if(!strcmp("radiotftp_uhf", av[0]) || !strcmp("./radiotftp_uhf", av[0]))
 	{
 		mode=RADIOTFTP_MODE_UHF;
 		preamble_length=RADIOTFTP_BIM2A_PREAMBLE_LENGTH;
@@ -426,7 +426,7 @@ int main(int ac, char *av[])
 		printf("Running with UHF band 19200 baud version\n");
 		openLogFile(RADIOTFTP_BIM2A_EVENTLOG);
 	}
-	else if(!strcmp("radiotftp_vhf", av[0]))
+	else if(!strcmp("radiotftp_vhf", av[0]) || !strcmp("./radiotftp_vhf", av[0]))
 	{
 		mode=RADIOTFTP_MODE_VHF;
 		preamble_length=RADIOTFTP_UHX1_PREAMBLE_LENGTH;
