@@ -7,8 +7,8 @@
 #include "udp_ip.h"
 
 static dataQueuerfptr_t mainDataQueuer;
-static uint8_t local_ip_address[6]={127, 0, 0, 0, 0, 1};
-static const uint8_t udp_broadcast_address[6]={0xff, 0xff, 0xff, 0xff, 0xff, 0xff};
+static uint8_t local_ip_address[4]={127, 0, 0, 1};
+static const uint8_t udp_broadcast_address[4]={ 255, 255, 255, 255};
 
 static uint16_t udp_calculate_checksum(uint8_t* src_addr, uint8_t* dest_addr, uint8_t* payload, uint16_t udp_len)
 {
@@ -31,13 +31,13 @@ static uint16_t udp_calculate_checksum(uint8_t* src_addr, uint8_t* dest_addr, ui
         sum = sum + (uint32_t)word16;
     }
 
-    // add the UDP pseudo header which contains the IP source and destinationn addresses
-    for (i=0;i<6;i=i+2)
+    // add the UDP pseudo header which contains the IP source and destination addresses
+    for (i=0;i<IPV4_SOURCE_LENGTH;i=i+2)
     {
         word16 =((src_addr[i]<<8)&0xFF00)+(src_addr[i+1]&0xFF);
         sum=sum+word16;
     }
-    for (i=0;i<6;i=i+2)
+    for (i=0;i<IPV4_DESTINATION_LENGTH;i=i+2)
     {
         word16 =((dest_addr[i]<<8)&0xFF00)+(dest_addr[i+1]&0xFF);
         sum=sum+word16;
@@ -65,7 +65,7 @@ dataQueuerfptr_t udp_get_data_queuer_fptr(void)
 void udp_initialize_ip_network(uint8_t* myIpAddress, dataQueuerfptr_t dataQueuer)
 {
     uint32_t i;
-    for(i=0; i<6; i++)
+    for(i=0; i<IPV4_SOURCE_LENGTH; i++)
         local_ip_address[i] = myIpAddress[i];
 
     mainDataQueuer=dataQueuer;
@@ -77,7 +77,7 @@ uint8_t* udp_get_localhost_ip(uint8_t* ip_out)
 
     if(ip_out!=NULL)
     {
-        for(i=0; i<6; i++)
+        for(i=0; i<IPV4_SOURCE_LENGTH; i++)
             ip_out[i] = local_ip_address[i];
     }
     return local_ip_address;
@@ -88,7 +88,7 @@ uint8_t* udp_get_broadcast_ip(uint8_t* ip_out)
 
     if(ip_out!=NULL)
     {
-        for(i=0; i<6; i++)
+        for(i=0; i<IPV4_SOURCE_LENGTH; i++)
             ip_out[i] = udp_broadcast_address[i];
     }
     return udp_broadcast_address;
@@ -96,49 +96,88 @@ uint8_t* udp_get_broadcast_ip(uint8_t* ip_out)
 
 uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, uint16_t dst_port, uint8_t* payload_in, uint16_t payload_length, uint8_t* packet_out)
 {
-    uint16_t len=0, udp_checksum=0;
+    uint16_t len=0, udp_checksum=0, total_length=0, tmp_len;
+    uint32_t header_checksum=0;
+    uint16_t *checksumPtr;
     uint8_t i;
 
     //check for input errors
     if(payload_length > UDP_MAX_PAYLOAD_LENGTH || packet_out==NULL)
         return 0;
 
-    //IPv6 Headers
+    //IPv4 Headers
 
-    //paste version and priority
-    uint8_t version_priority=0x62; //IPv6=6 & FTP prio=2
-    packet_out[IPV6_VERSION_PRIORITY_OFFSET]=version_priority;
-    len+=IPV6_VERSION_PRIORITY_LENGTH;
+    //version and header length
+    //version 4
+    //length 5x32
+    packet_out[IPV4_VERSIONnIHL_OFFSET]= ((0x04)<<4) | (0x05);
+    len+=IPV4_VERSIONnIHL_LENGTH;
 
-    //paste flow label -> last 2 bytes of the source address and last byte of source port
-    packet_out[IPV6_FLOW_LABEL_OFFSET]=src_in[4];
-    packet_out[IPV6_FLOW_LABEL_OFFSET+1]=src_in[5];
-    packet_out[IPV6_FLOW_LABEL_OFFSET+2]=(src_port & 0xFF);
-    len+=IPV6_FLOW_LABEL_LENGTH;
+    //differentiated services code point and explicit congestion notification
+    packet_out[IPV4_DSCPnECN_OFFSET] = (0x03<<4) | (0x00);
+    len+=IPV4_DSCPnECN_LENGTH;
 
-    //paste the payload length
-    payload_length+=8; //add udp headers
-    packet_out[IPV6_PAYLOAD_LENGTH_OFFSET]=((payload_length>>8) & 0xFF);
-    packet_out[IPV6_PAYLOAD_LENGTH_OFFSET+1]=(payload_length & 0xFF);
-    len+=IPV6_PAYLOAD_LENGTH_LENGTH;
+    //total length
+    //add udp header length + ip header length
+    total_length = payload_length+8+20;
+    packet_out[IPV4_TOTAL_LENGTH_OFFSET]=((total_length>>8) & 0xFF);
+    packet_out[IPV4_TOTAL_LENGTH_OFFSET+1]=(total_length & 0xFF);
+    len+=IPV4_TOTAL_LENGTH_LENGTH;
 
-    //paste the next header -> UDP
-    packet_out[IPV6_NEXT_HEADER_OFFSET]=17; //UDP
-    len+=IPV6_NEXT_HEADER_LENGTH;
-    
-    //paste the hop limit
-    packet_out[IPV6_HOP_LIMIT_OFFSET]=IPV6_HOP_LIMIT;
-    len+=IPV6_HOP_LIMIT_LENGTH;
+    //fragment identification
+    packet_out[IPV4_IDENTIFICATION_OFFSET]=0;
+    packet_out[IPV4_IDENTIFICATION_OFFSET+1]=0;
+    len+=IPV4_IDENTIFICATION_LENGTH;
 
-    //paste the source address
-    for(i=0; i<6; i++)
-        packet_out[IPV6_SOURCE_OFFSET+i]=src_in[i];
-    len+=IPV6_SOURCE_LENGTH;
+    //flags and fragment offset
+    //bit 1 for flags means dont fragment
+    packet_out[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET]= (0x01<<5) | (0x00);
+    packet_out[IPV4_FLAGSnFRAGMENT_OFFSET_OFFSET+1]= 0x00;
+    len+=IPV4_FLAGSnFRAGMENT_OFFSET_LENGTH;
+
+    //time to live
+    packet_out[IPV4_TIME_TO_LIVE_OFFSET] = IPV4_TTL_LIMIT;
+    len+=IPV4_TIME_TO_LIVE_LENGTH;
+
+    //protocol
+    packet_out[IPV4_PROTOCOL_OFFSET] = UDP_IPV4_PROTOCOL_NUMBER;
+    len+=IPV4_PROTOCOL_LENGTH;
+
+    //header checksum
+    {
+		tmp_len = len;
+		checksumPtr = packet_out;
+		while(tmp_len > 1)
+		{
+			header_checksum += *((uint16_t*) checksumPtr)++;
+			if(header_checksum & 0x80000000)   /* if high order bit set, fold */
+				header_checksum = (header_checksum & 0xFFFF) + (header_checksum >> 16);
+			tmp_len -= 2;
+		}
+
+		if(tmp_len)       /* take care of left over byte */
+		{
+			header_checksum += (uint16_t) *(uint8_t *)checksumPtr;
+		}
+
+		while(header_checksum>>16)
+		{
+			header_checksum = (header_checksum & 0xFFFF) + (header_checksum >> 16);
+		}
+    }
+    packet_out[IPV4_HEADER_CHECKSUM_OFFSET] = (header_checksum >> 8) & 0xFF;
+    packet_out[IPV4_HEADER_CHECKSUM_OFFSET+1] = header_checksum & 0xFF;
+    len+=IPV4_HEADER_CHECKSUM_LENGTH;
+
+    //source address
+    for(i=0; i<IPV4_SOURCE_LENGTH; i++)
+        packet_out[IPV4_SOURCE_OFFSET+i]=src_in[i];
+    len+=IPV4_SOURCE_LENGTH;
 
     //paste the destination address
-    for(i=0; i<6; i++)
-        packet_out[IPV6_DESTINATION_OFFSET+i]=dst_in[i];
-    len+=IPV6_DESTINATION_LENGTH;
+    for(i=0; i<IPV4_DESTINATION_LENGTH; i++)
+        packet_out[IPV4_DESTINATION_OFFSET+i]=dst_in[i];
+    len+=IPV4_DESTINATION_LENGTH;
 
     //UDP Headers
 
@@ -177,29 +216,35 @@ uint8_t udp_check_destination(uint8_t* my_dst, uint8_t* packet_dst, uint8_t* pac
     uint8_t result;
     
     //check for address match
-    result=memcmp(my_dst, packet_in+IPV6_DESTINATION_OFFSET, IPV6_DESTINATION_LENGTH);
+    result=memcmp(my_dst, packet_in+IPV4_DESTINATION_OFFSET, IPV4_DESTINATION_LENGTH);
     if(result)
     {
-        result=memcmp(udp_broadcast_address, packet_in+IPV6_DESTINATION_OFFSET, IPV6_DESTINATION_LENGTH);
+        result=memcmp(udp_broadcast_address, packet_in+IPV4_DESTINATION_OFFSET, IPV4_DESTINATION_LENGTH);
     }
 
     //copy the destination address in the packet
     if(packet_dst!=NULL)
-    	memcpy(packet_dst, packet_in+IPV6_DESTINATION_OFFSET, IPV6_DESTINATION_LENGTH);
+    	memcpy(packet_dst, packet_in+IPV4_DESTINATION_OFFSET, IPV4_DESTINATION_LENGTH);
     
     return result;
 }
-
 
 uint16_t udp_open_packet_extended(uint8_t* src_out, uint16_t* src_port_out,
                                     uint8_t* dst_out, uint16_t* dst_port_out,
                                     uint8_t* payload_out,
                                     uint8_t* packet_in,
-                                    uint8_t* flow_label_out,
-                                    uint8_t* hop_limit_out,
-                                    uint8_t* next_header_out,
-                                    uint8_t* version_out,
-                                    uint8_t* priority_out)
+									uint8_t* version_out,
+									uint8_t* headerlength_out,
+									uint8_t* dscp_out,
+									uint8_t* ecn_out,
+									uint16_t* totallength_out,
+									uint16_t* fragmentidentification_out,
+									uint8_t* flags_out,
+									uint16_t* fragmentoffset_out,
+									uint8_t* ttl_out,
+									uint8_t* protocol_out,
+									uint8_t* headerchecksum_out,
+									)
 {
     uint16_t len=0;
     uint16_t udp_len_from_ip=0;
