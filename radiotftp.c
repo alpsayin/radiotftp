@@ -418,7 +418,7 @@ int main(int ac, char *av[])
 	if(ac == 1)
 		usage();
 
-	if(!strcmp("radiotftp_uhf", av[0]) || !strcmp("./radiotftp_uhf", av[0]))
+	if(!strcmp("uhf", av[1]))
 	{
 		mode=RADIOTFTP_MODE_UHF;
 		preamble_length=RADIOTFTP_BIM2A_PREAMBLE_LENGTH;
@@ -426,7 +426,7 @@ int main(int ac, char *av[])
 		printf("Running with UHF band 19200 baud version\n");
 		openLogFile(RADIOTFTP_BIM2A_EVENTLOG);
 	}
-	else if(!strcmp("radiotftp_vhf", av[0]) || !strcmp("./radiotftp_vhf", av[0]))
+	else if(!strcmp("vhf", av[1]))
 	{
 		mode=RADIOTFTP_MODE_VHF;
 		preamble_length=RADIOTFTP_UHX1_PREAMBLE_LENGTH;
@@ -447,7 +447,8 @@ int main(int ac, char *av[])
 	udp_get_broadcast_ip(destination_ip);
 	strcpy(dial_tty, "/dev/ttyUSB0");
 
-	for(i=1; (i < ac) && (av[i][0] == '-'); i++)
+	//scanning command line parameters
+	for(i=2; (i < ac) && (av[i][0] == '-'); i++)
 	{
 		if(strcmp(av[i], "-b") == 0)
 		{
@@ -630,12 +631,7 @@ int main(int ac, char *av[])
 #if AX_25_ENABLED==1
 		ax25_initialize_network(linebuf);
 		printf("USING AX25 LINK LAYER!!!\n");
-#endif
-		readnline(sptr, linebuf, 32);
-		text_to_ip(linebuf, 32);
-		printf("Eth Address: ");
-		print_addr_hex(linebuf);
-#if AX25_ENABLED==0
+#else AX25_ENABLED==0
 		printf("NOT USING ANY LINK LAYER!!!\n");
 #endif
 		readnline(sptr, linebuf, 32);
