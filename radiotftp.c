@@ -439,6 +439,7 @@ int main(int ac, char *av[])
 		mode=RADIOTFTP_MODE_VHF;
 		preamble_length=RADIOTFTP_UHX1_PREAMBLE_LENGTH;
 		baud=RADIOTFTP_UHX1_BAUD_RATE;
+		printf("Couldn't understand the uhf/vhf mode: using vhf mode\n");
 		printf("Running with VHF band 2400 baud version\n");
 		openLogFile(RADIOTFTP_UHX1_EVENTLOG);
 	}
