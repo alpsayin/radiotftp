@@ -1,3 +1,3 @@
-printAsciiHex.d: ../printAsciiHex.c ../printAsciiHex.h
+printAsciiHex.d: ../printAsciiHex.c ../Headers/printAsciiHex.h
 
-../printAsciiHex.h:
+../Headers/printAsciiHex.h:
