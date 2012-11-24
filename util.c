@@ -23,7 +23,7 @@ void usage(void)
     printf("\tradiotftp_uhf\n");
     printf("\tradiotftp_vhf\n");
     printf("Build Date: %s\n", BUILD);
-if AX25_ENABLED==1
+#if AX25_ENABLED==1
     printf("Uses ax25 link layer\n");
 #else
     printf("Doesn't use any link layer\n");
