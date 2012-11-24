@@ -23,14 +23,13 @@ void usage(void)
     printf("\tradiotftp_uhf\n");
     printf("\tradiotftp_vhf\n");
     printf("Build Date: %s\n", BUILD);
-#if ETHERNET_ENABLED==1
-    printf("Uses ethernet link layer\n");
-#elif AX25_ENABLED==1
+if AX25_ENABLED==1
     printf("Uses ax25 link layer\n");
 #else
     printf("Doesn't use any link layer\n");
 #endif
-    printf("radiotftp [-dst] [-b] [-f] terminal [command filename] \n");
+    printf("radiotftp mode [-dst] [-b] [-f] terminal [command filename] \n");
+    printf(" mode uhf or vhf");
     printf(" -b run in background (EXPERIMENTAL, do NOT use this!)\n");
     printf(" -f defines a different local filename for put and get\n");
     printf("    and defines a different remote filename for append and appendline\n");
@@ -38,11 +37,11 @@ void usage(void)
     		"   default is broadcast");
     printf(" Local address settings are read from a 'radiotftp.conf' file\n");
     printf(" Examples: \n"
-    		"    radiotftp_uhf /dev/ttyUSB0 \n"
-    		"    radiotftp_uhf -flocalphoto.jpg /dev/ttyUSB0 get remotephoto.jpg\n"
-    		"    radiotftp_uhf -flocalmusic.mp3 /dev/ttyUSB0 put remotemusic.mp3\n"
-    		"    radiotftp_vhf -dst10.0.0.1 /dev/ttyUSB0 appendfile logfile.txt\n"
-    		"    radiotftp_vhf -fremote_sensors.dat /dev/ttyUSB0 appendline '{TELEMETRY BATTERY=3.3V}'\n"
+    		"    radiotftp uhf /dev/ttyUSB0 \n"
+    		"    radiotftp uhf -flocalphoto.jpg /dev/ttyUSB0 get remotephoto.jpg\n"
+    		"    radiotftp uhf -flocalmusic.mp3 /dev/ttyUSB0 put remotemusic.mp3\n"
+    		"    radiotftp vhf -dst10.0.0.1 /dev/ttyUSB0 appendfile logfile.txt\n"
+    		"    radiotftp vhf -fremote_sensors.dat /dev/ttyUSB0 appendline '{TELEMETRY BATTERY=3.3V}'\n"
     		"\n");
 
     safe_exit(-1);
