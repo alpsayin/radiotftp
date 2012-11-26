@@ -131,7 +131,6 @@ uint16_t udp_create_packet(uint8_t* src_in, uint16_t src_port, uint8_t* dst_in, 
         return 0;
 
     //IPv4 Headers
-    CHECKPOINT(1);
     //version and header length
     //version 4
     //length 5x32
