@@ -375,7 +375,7 @@ PACKET_HANDLER_FUNCTION(tftp_negotiate)
     {
 		if(status!=TFTP_STATUS_IDLE && strncmp(tftp_peer, src, 6))
 		{
-			printf("I'm busy with %02x.%02x.%02x.%02x.%02x.%02x -> %02x.%02x.%02x.%02x.%02x.%02x : %d\n", tftp_peer[0], tftp_peer[1], tftp_peer[2], tftp_peer[3], tftp_peer[4], tftp_peer[5], src[0], src[1], src[2], src[3], src[4], src[5], src_port);
+			printf("I'm busy with %d.%d.%d.%d -> %d.%d.%d.%d : %d\n", tftp_peer[0], tftp_peer[1], tftp_peer[2], tftp_peer[3], src[0], src[1], src[2], src[3], src_port);
 			result=tftp_sendError(TFTP_ERROR_SEE_MESSAGE, src, src_port, "I'm busy.\0", strlen("I'm busy.\0"));
 			return -2;
 		}
@@ -389,7 +389,7 @@ PACKET_HANDLER_FUNCTION(tftp_negotiate)
 				fptr=NULL;
 			}
 			registerEvent("connection_cancel","override");
-			printf("Previous connection canceled -> %02x.%02x.%02x.%02x.%02x.%02x : %d\n", src[0], src[1], src[2], src[3], src[4], src[5], src_port);
+			printf("Previous connection canceled -> %d.%d.%d.%d : %d\n", src[0], src[1], src[2], src[3], src_port);
 		}
     }
     //read in the filename
