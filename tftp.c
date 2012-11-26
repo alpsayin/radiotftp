@@ -515,11 +515,15 @@ PACKET_HANDLER_FUNCTION(tftp_negotiate)
         printf("opening %s\n", filename);
         if(!strncmp(comment, "append", 6)) //if comment says append
         {
+        	//TODO: check if parent directory exists and create if not
+//        	mkpath(filename, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         	fptr=fopen(filename, "ab+");
 //        	fwrite("\n", 1, 1, fptr);
         }
         else
         {
+        	//TODO: check if parent directory exists and create if not
+//        	mkpath(filename, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         	fptr=fopen(filename, "wb");
         }
         if(fptr == NULL)
