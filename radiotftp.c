@@ -455,7 +455,7 @@ int main(int ac, char *av[])
 		{
 			background=1;
 		}
-		else if(strcmp(av[i], "-f") == 0)
+		else if(strncmp(av[i], "-f", 2) == 0)
 		{
 			strncpy(local_filename, av[i] + 2, 32);
 			printf("different filename = '%s'\n", local_filename);
@@ -470,8 +470,10 @@ int main(int ac, char *av[])
 			print_addr_dec(destination_ip);
 		}
 		else
+		{
+			printf("unknown parameter: %s\n", av[i]);
 			usage();
-
+		}
 	}
 	res=0;
 	result=0;
@@ -629,7 +631,7 @@ int main(int ac, char *av[])
 		linebuf[8]=0;
 		printf("AX.25 Callsign: ");
 		print_callsign(linebuf);
-#if AX_25_ENABLED==1
+#if AX25_ENABLED==1
 		ax25_initialize_network(linebuf);
 		printf("USING AX25 LINK LAYER!!!\n");
 #else AX25_ENABLED==0
@@ -702,6 +704,7 @@ int main(int ac, char *av[])
 		fwrite(command_buffer + strlen(RADIOTFTP_COMMAND_APPEND_LINE) + 1, 1, j - strlen(RADIOTFTP_COMMAND_APPEND_LINE) - 1, tempFile);
 		fflush(tempFile);
 		fclose(tempFile);
+		printf("tempfileName=%s\nlocal_filename=%s\n", tempFileName, local_filename);
 		if((res=tftp_sendRequest(TFTP_OPCODE_WRQ, destination_ip, tempFileName, local_filename, strlen(local_filename), 1)))
 		{
 			printf("%d\n", res);
