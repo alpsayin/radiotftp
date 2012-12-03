@@ -10,3 +10,7 @@
 *.lai
 *.la
 *.a
+
+*.log
+ax25_build/radiotftp
+no-link_build/radiotftp
