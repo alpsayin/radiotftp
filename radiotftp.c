@@ -638,7 +638,7 @@ int main(int ac, char *av[])
 		printf("NOT USING ANY LINK LAYER!!!\n");
 #endif
 		readnline(sptr, linebuf, 32);
-		text_to_ip(linebuf, 32);
+		text_to_ip(linebuf, strlen(linebuf));
 		printf("IPv4 Address: ");
 		print_addr_dec(linebuf);
 		udp_initialize_ip_network(linebuf, &queueSerialData);
