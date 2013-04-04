@@ -43,6 +43,8 @@ void usage(void)
 	printf(
 			" Examples: \n"
 					"    radiotftp uhf /dev/ttyUSB0 \n"
+					"    radiotftp uhf  /dev/ttyUSB0 get remotephoto.jpg\n"
+					"    radiotftp uhf  /dev/ttyUSB0 put localphoto.jpg\n"
 					"    radiotftp uhf -flocalphoto.jpg /dev/ttyUSB0 get remotephoto.jpg\n"
 					"    radiotftp uhf -flocalmusic.mp3 /dev/ttyUSB0 put remotemusic.mp3\n"
 					"    radiotftp vhf -dst10.0.0.1 /dev/ttyUSB0 appendfile logfile.txt\n"
