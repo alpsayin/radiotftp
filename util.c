@@ -124,6 +124,7 @@ uint8_t text_to_ip(uint8_t* in_and_out, uint8_t in_length)
 //			printf("sum=%d ", sum);
 		}
 	}
+	in_and_out[point++] = sum;
 	return 0;
 }
 uint8_t readnline(FILE* fptr, uint8_t* out, uint8_t length)
