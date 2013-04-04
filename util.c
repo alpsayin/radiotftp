@@ -112,7 +112,7 @@ uint8_t text_to_ip(uint8_t* in_and_out, uint8_t in_length)
 	//printf("%s\n", in_and_out);
 	for (i = 0; i < in_length; i++)
 	{
-	  printf("%c\n", in_and_out[i]);
+//	  printf("%c\n", in_and_out[i]);
 		if (in_and_out[i] == '.' || in_and_out[i] == ':' ||
 		    in_and_out[i] == 0x00 || 
 		    in_and_out[i] == '\n' ||
