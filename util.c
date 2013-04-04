@@ -109,10 +109,14 @@ uint8_t text_to_ip(uint8_t* in_and_out, uint8_t in_length)
 	uint8_t i;
 	uint8_t point = 0;
 	uint8_t sum = 0;
+	//printf("%s\n", in_and_out);
 	for (i = 0; i < in_length; i++)
 	{
-		if (in_and_out[i] == '.' || in_and_out[i] == ':'
-				|| in_and_out[i] == 0x00)
+	  printf("%c\n", in_and_out[i]);
+		if (in_and_out[i] == '.' || in_and_out[i] == ':' ||
+		    in_and_out[i] == 0x00 || 
+		    in_and_out[i] == '\n' ||
+		    in_and_out[i] == '\r')
 		{
 			in_and_out[point++] = sum;
 			sum = 0;
@@ -121,7 +125,7 @@ uint8_t text_to_ip(uint8_t* in_and_out, uint8_t in_length)
 		else
 		{
 			sum = (sum * 10) + (in_and_out[i] - '0');
-//			printf("sum=%d ", sum);
+//			printf("sum=%d \n", sum);
 		}
 	}
 	in_and_out[point++] = sum;
