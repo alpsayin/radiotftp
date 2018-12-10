@@ -28,7 +28,7 @@ all: radiotftp
 radiotftp: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -static -pg -o "radiotftp" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -static  -o "radiotftp" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

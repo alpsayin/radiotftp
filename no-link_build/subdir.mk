@@ -5,10 +5,11 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../ax25.c \
+../datacollection.c \
 ../devtag-allinone.c \
-../ethernet.c \
 ../lock.c \
 ../manchester.c \
+../printAsciiHex.c \
 ../radiotftp.c \
 ../tftp.c \
 ../timers.c \
@@ -17,10 +18,11 @@ C_SRCS += \
 
 OBJS += \
 ./ax25.o \
+./datacollection.o \
 ./devtag-allinone.o \
-./ethernet.o \
 ./lock.o \
 ./manchester.o \
+./printAsciiHex.o \
 ./radiotftp.o \
 ./tftp.o \
 ./timers.o \
@@ -29,10 +31,11 @@ OBJS += \
 
 C_DEPS += \
 ./ax25.d \
+./datacollection.d \
 ./devtag-allinone.d \
-./ethernet.d \
 ./lock.d \
 ./manchester.d \
+./printAsciiHex.d \
 ./radiotftp.d \
 ./tftp.d \
 ./timers.d \
@@ -44,7 +47,7 @@ C_DEPS += \
 %.o: ../%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C Compiler'
-	gcc -I"/home/alpsayin/wsn-longrange-radio-uplink/project_radiotftp/Header Files" -O3 -g3 -pg -c -fmessage-length=0 -march=i586 -static -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	gcc -I"../Headers" -O3 -g3 -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
