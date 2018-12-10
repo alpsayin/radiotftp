@@ -287,6 +287,9 @@ uint16_t transmitSerialData(void)
 		case RADIOTFTP_MODE_VHF:
 			usleep(RADIOTFTP_UHX1_TX_PREDELAY);
 			break;
+		case RADIOTFTP_MODE_SERIAL:
+			usleep(RADIOTFTP_SERIAL_TX_PREDELAY);
+			break;
 		default:
 			perror("unknown baud rate");
 			safe_exit(-1);
@@ -332,6 +335,9 @@ uint16_t transmitSerialData(void)
 				break;
 			case RADIOTFTP_MODE_VHF:
 				usleep(RADIOTFTP_UHX1_TX_POSTDELAY);
+				break;
+			case RADIOTFTP_MODE_SERIAL:
+				usleep(RADIOTFTP_SERIAL_TX_POSTDELAY);
 				break;
 			default:
 				perror("unknown baud rate");
@@ -418,6 +424,9 @@ int main(int ac, char *av[])
 	if(ac == 1)
 		usage();
 
+	//for(i=0; i<ac; i++)
+	//	printf("%s\n",av[i]);
+
 	if(!strcmp("uhf", av[1]))
 	{
 		mode=RADIOTFTP_MODE_UHF;
@@ -434,14 +443,20 @@ int main(int ac, char *av[])
 		printf("Running with VHF band 2400 baud version\n");
 		openLogFile(RADIOTFTP_UHX1_EVENTLOG);
 	}
+	else if(!strcmp("serial", av[1]))
+	{
+		mode=RADIOTFTP_MODE_SERIAL;
+		preamble_length=RADIOTFTP_SERIAL_PREAMBLE_LENGTH;
+		baud=RADIOTFTP_SERIAL_BAUD_RATE;
+		printf("Couldn't understand the uhf/vhf mode: using %d mode\n", mode);
+		printf("Running with NO BAND %d baud version\n", baud);
+		printf("Opening file %s for logging\n",RADIOTFTP_SERIAL_EVENTLOG);
+		openLogFile(RADIOTFTP_SERIAL_EVENTLOG);
+	}
 	else
 	{
-		mode=RADIOTFTP_MODE_VHF;
-		preamble_length=RADIOTFTP_UHX1_PREAMBLE_LENGTH;
-		baud=RADIOTFTP_UHX1_BAUD_RATE;
-		printf("Couldn't understand the uhf/vhf mode: using vhf mode\n");
-		printf("Running with VHF band 2400 baud version\n");
-		openLogFile(RADIOTFTP_UHX1_EVENTLOG);
+		printf("Mode not entered, exiting...\n");
+		return 0;
 	}
 
 	//setting defaults
@@ -663,6 +678,9 @@ int main(int ac, char *av[])
 		case RADIOTFTP_MODE_VHF:
 			tftp_initialize(udp_get_data_queuer_fptr(), RADIOTFTP_UHX1_ACK_TIMEOUT_MIN, RADIOTFTP_UHX1_ACK_TIMEOUT_MAX, RADIOTFTP_UHX1_READ_TIMEOUT);
 			break;
+		case RADIOTFTP_MODE_SERIAL:
+			tftp_initialize(udp_get_data_queuer_fptr(), RADIOTFTP_SERIAL_ACK_TIMEOUT_MIN, RADIOTFTP_SERIAL_ACK_TIMEOUT_MAX, RADIOTFTP_SERIAL_READ_TIMEOUT);
+			break;
 		default:
 			perror("unknown baud rate");
 			safe_exit(-1);
@@ -778,6 +796,9 @@ int main(int ac, char *av[])
 						break;
 					case RADIOTFTP_MODE_VHF:
 						usleep(RADIOTFTP_UHX1_TX_MESSAGE_INTERVAL);
+						break;
+					case RADIOTFTP_MODE_SERIAL:
+						usleep(RADIOTFTP_SERIAL_TX_MESSAGE_INTERVAL);
 						break;
 					default:
 						perror("unknown baud rate");
