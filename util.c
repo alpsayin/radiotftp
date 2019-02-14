@@ -32,7 +32,7 @@ void usage(void)
 	printf("Doesn't use any link layer\n");
 #endif
 	printf("radiotftp mode [-dst] [-b] [-f] terminal [command filename] \n");
-	printf(" mode uhf or vhf");
+	printf(" mode uhf or vhf or serial");
 	printf(" -b run in background (EXPERIMENTAL, do NOT use this!)\n");
 	printf(" -f defines a different local filename for put and get\n");
 	printf(
